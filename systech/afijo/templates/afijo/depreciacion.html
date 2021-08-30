@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <a href="/">
+                <img src="http://systechchile.cl/Images/dual_logo.png" class="img-fluid" />
+            </a>
+        </div>
+    </div>
+
+    <div class="card card-block" style="padding: 8px;">
+        <h2 class="card-text">Depreciación Planta
+            <a href="javascript:history.back()" class="btn btn-primary btn-sm float-right">Volver</a>
+        </h2>
+    </div>    
+
+    <div class="card card-block" style="padding: 8px;">
+        <form method="post" action="{% url 'csvDepreciacionPlanta' %}" class="js-export-form" v-on:submit.prevent="submitExport">
+            {% csrf_token %}
+            <input type="submit" value="Exportar CSV" class="btn btn-primary btn-sm float-right" />
+        </form>
+    </div>    
+    
+
+    <div class="row mt-5">
+        <div class="col">
+            <!-- <div class="card"> -->
+            <!-- <div class="card-body"> -->
+            {% if planta_list %}
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Ubicación</th>
+                        <th>Inicio Depreciacion</th>
+                        <th>Acción</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for planta in planta_list %}
+                        <tr>
+                        <td>{{ planta.nombre }}</td>
+                        <td>{{ planta.ubicacion }}</td>
+                        <td>{{ planta.fecha_depreciacion|date:'d/m/Y' }}</td>
+                        <td><a href="{% url 'plantaDepreciacion' planta.id %}" class="btn btn-secondary btn-sm my-0 ">Anual</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No hay plantas disponibles.</p>
+            {% endif %}
+            <!-- </div> -->
+            <!-- </div> -->
+    </div>
+</div>    
+
+{% endblock %}

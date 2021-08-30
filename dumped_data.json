@@ -1,0 +1,8069 @@
+[
+{
+    "model": "afijo.estado",
+    "pk": 1,
+    "fields": {
+        "descripcion": "Vigente"
+    }
+},
+{
+    "model": "afijo.estado",
+    "pk": 2,
+    "fields": {
+        "descripcion": "Depreciandose"
+    }
+},
+{
+    "model": "afijo.estado",
+    "pk": 3,
+    "fields": {
+        "descripcion": "Baja"
+    }
+},
+{
+    "model": "afijo.tipodepreciacion",
+    "pk": 1,
+    "fields": {
+        "descripcion": "Lineal"
+    }
+},
+{
+    "model": "afijo.tipodepreciacion",
+    "pk": 2,
+    "fields": {
+        "descripcion": "Acelerada"
+    }
+},
+{
+    "model": "afijo.planta",
+    "pk": 1,
+    "fields": {
+        "nombre": "AB1308",
+        "ubicacion": "El Oto\u00f1o 501, Lampa, RM",
+        "fecha_apertura": "2017-10-01",
+        "fecha_depreciacion": "2018-04-01",
+        "fecha_inicio": "2017-11-10",
+        "fecha_termino": "2028-11-10",
+        "duracion_concesion": 11
+    }
+},
+{
+    "model": "afijo.planta",
+    "pk": 2,
+    "fields": {
+        "nombre": "AB0610",
+        "ubicacion": "Avenida Salvador Allende 273, Rancagua, RM",
+        "fecha_apertura": "2021-07-01",
+        "fecha_depreciacion": "2021-01-17",
+        "fecha_inicio": "2021-01-17",
+        "fecha_termino": "2026-08-19",
+        "duracion_concesion": 5
+    }
+},
+{
+    "model": "afijo.planta",
+    "pk": 7,
+    "fields": {
+        "nombre": "AB1307",
+        "ubicacion": "Avenida Vicu\u00f1a Mackenna 3276, Melipilla, RM",
+        "fecha_apertura": "2018-12-01",
+        "fecha_depreciacion": "2019-06-01",
+        "fecha_inicio": "2015-11-10",
+        "fecha_termino": "2023-11-10",
+        "duracion_concesion": 8
+    }
+},
+{
+    "model": "afijo.planta",
+    "pk": 8,
+    "fields": {
+        "nombre": "AB0726",
+        "ubicacion": "Los Vidales 2221, Curic\u00f3, MAULE",
+        "fecha_apertura": "2016-09-01",
+        "fecha_depreciacion": "2017-03-01",
+        "fecha_inicio": "2016-08-31",
+        "fecha_termino": "2022-08-07",
+        "duracion_concesion": 8
+    }
+},
+{
+    "model": "afijo.planta",
+    "pk": 9,
+    "fields": {
+        "nombre": "AB0541",
+        "ubicacion": "La Hijuela Lote 2, Sector Tapihue, Casablanca, VALPARA\u00cdSO",
+        "fecha_apertura": "2019-06-01",
+        "fecha_depreciacion": "2019-12-01",
+        "fecha_inicio": "2017-09-01",
+        "fecha_termino": "2025-09-01",
+        "duracion_concesion": 8
+    }
+},
+{
+    "model": "afijo.planta",
+    "pk": 10,
+    "fields": {
+        "nombre": "AB0727",
+        "ubicacion": "Calle 2 Sur 631, esquina Ignacio Carrera Pinto, Parral, MAULE",
+        "fecha_apertura": "2017-02-01",
+        "fecha_depreciacion": "2017-08-01",
+        "fecha_inicio": "2014-08-07",
+        "fecha_termino": "2022-08-07",
+        "duracion_concesion": 8
+    }
+},
+{
+    "model": "afijo.planta",
+    "pk": 11,
+    "fields": {
+        "nombre": "AB0728",
+        "ubicacion": "Camino Constituci\u00f3n a Chanco o Ruta M-50, Constituci\u00f3n, MAULE",
+        "fecha_apertura": "2018-07-01",
+        "fecha_depreciacion": "2019-01-01",
+        "fecha_inicio": "2014-08-07",
+        "fecha_termino": "2022-08-07",
+        "duracion_concesion": 8
+    }
+},
+{
+    "model": "afijo.planta",
+    "pk": 12,
+    "fields": {
+        "nombre": "AB0611",
+        "ubicacion": "El Algarrobo 1721, Sector Pueblo de Indios, San Vicente, LIBERTADOR GRAL. BERNARDO O`HIGGINS",
+        "fecha_apertura": "2018-03-01",
+        "fecha_depreciacion": "2018-09-01",
+        "fecha_inicio": "2016-01-29",
+        "fecha_termino": "2024-01-29",
+        "duracion_concesion": 8
+    }
+},
+{
+    "model": "afijo.planta",
+    "pk": 13,
+    "fields": {
+        "nombre": "B0542",
+        "ubicacion": "Limache 4165 sector El Salto, Vi\u00f1a del Mar, VALPARA\u00cdSO",
+        "fecha_apertura": "2019-10-01",
+        "fecha_depreciacion": "2020-04-01",
+        "fecha_inicio": "2017-09-01",
+        "fecha_termino": "2025-09-01",
+        "duracion_concesion": 8
+    }
+},
+{
+    "model": "afijo.planta",
+    "pk": 14,
+    "fields": {
+        "nombre": "B1508",
+        "ubicacion": "Avenida Argentina 3229, Arica, ARICA Y PARINACOTA",
+        "fecha_apertura": "2019-12-01",
+        "fecha_depreciacion": "2020-06-01",
+        "fecha_inicio": "2017-10-01",
+        "fecha_termino": "2026-10-01",
+        "duracion_concesion": 8
+    }
+},
+{
+    "model": "afijo.planta",
+    "pk": 15,
+    "fields": {
+        "nombre": "AB1507",
+        "ubicacion": "Calle 3 Norte 130, Arica, ARICA Y PARINACOTA",
+        "fecha_apertura": "2019-11-01",
+        "fecha_depreciacion": "2021-01-04",
+        "fecha_inicio": "2017-10-01",
+        "fecha_termino": "2026-11-20",
+        "duracion_concesion": 9
+    }
+},
+{
+    "model": "afijo.activo",
+    "pk": 1,
+    "fields": {
+        "tipoDepreciacion": 1,
+        "nombre": "Notebook 5432",
+        "fecha_ingreso": "2021-01-07",
+        "fecha_inicio": "2021-05-01",
+        "duracion_maxima": 5,
+        "fecha_termino": "2026-05-01",
+        "fecha_baja": null,
+        "valor": 1210000,
+        "valorResidual": 0,
+        "cantidad": 1,
+        "tipoActivo": "M",
+        "estado": 1,
+        "planta": 1
+    }
+},
+{
+    "model": "afijo.activo",
+    "pk": 2,
+    "fields": {
+        "tipoDepreciacion": 1,
+        "nombre": "Impresora HP 100",
+        "fecha_ingreso": "2021-01-07",
+        "fecha_inicio": "2021-05-01",
+        "duracion_maxima": 5,
+        "fecha_termino": "2026-05-01",
+        "fecha_baja": null,
+        "valor": 141000,
+        "valorResidual": 0,
+        "cantidad": 1,
+        "tipoActivo": "M",
+        "estado": 1,
+        "planta": 2
+    }
+},
+{
+    "model": "afijo.activo",
+    "pk": 3,
+    "fields": {
+        "tipoDepreciacion": 1,
+        "nombre": "Escritorio Oficina",
+        "fecha_ingreso": "2021-01-13",
+        "fecha_inicio": "2021-05-01",
+        "duracion_maxima": 5,
+        "fecha_termino": "2026-05-01",
+        "fecha_baja": null,
+        "valor": 341000,
+        "valorResidual": 0,
+        "cantidad": 1,
+        "tipoActivo": "M",
+        "estado": 1,
+        "planta": 1
+    }
+},
+{
+    "model": "afijo.activo",
+    "pk": 4,
+    "fields": {
+        "tipoDepreciacion": 1,
+        "nombre": "Silla para escritorio D10",
+        "fecha_ingreso": "2021-01-13",
+        "fecha_inicio": "2021-05-01",
+        "duracion_maxima": 5,
+        "fecha_termino": "2026-05-01",
+        "fecha_baja": null,
+        "valor": 79000,
+        "valorResidual": 0,
+        "cantidad": 20,
+        "tipoActivo": "M",
+        "estado": 1,
+        "planta": 1
+    }
+},
+{
+    "model": "afijo.activo",
+    "pk": 5,
+    "fields": {
+        "tipoDepreciacion": 1,
+        "nombre": "Mueble moderno 370",
+        "fecha_ingreso": "2021-02-02",
+        "fecha_inicio": "2019-10-01",
+        "duracion_maxima": 5,
+        "fecha_termino": "2024-10-01",
+        "fecha_baja": null,
+        "valor": 100000,
+        "valorResidual": 0,
+        "cantidad": 1,
+        "tipoActivo": "M",
+        "estado": 1,
+        "planta": 2
+    }
+},
+{
+    "model": "afijo.activo",
+    "pk": 6,
+    "fields": {
+        "tipoDepreciacion": 1,
+        "nombre": "Silla Modelo K",
+        "fecha_ingreso": "2012-04-30",
+        "fecha_inicio": "2012-05-01",
+        "duracion_maxima": 8,
+        "fecha_termino": "2029-05-01",
+        "fecha_baja": null,
+        "valor": 120000,
+        "valorResidual": 20000,
+        "cantidad": 8,
+        "tipoActivo": "M",
+        "estado": 1,
+        "planta": 11
+    }
+},
+{
+    "model": "afijo.activo",
+    "pk": 7,
+    "fields": {
+        "tipoDepreciacion": 1,
+        "nombre": "Gases",
+        "fecha_ingreso": "2021-05-05",
+        "fecha_inicio": "2020-05-01",
+        "duracion_maxima": 5,
+        "fecha_termino": "2025-05-01",
+        "fecha_baja": null,
+        "valor": 95000,
+        "valorResidual": 0,
+        "cantidad": 1,
+        "tipoActivo": "M",
+        "estado": 1,
+        "planta": 15
+    }
+},
+{
+    "model": "afijo.activo",
+    "pk": 8,
+    "fields": {
+        "tipoDepreciacion": 1,
+        "nombre": "Extra",
+        "fecha_ingreso": "2021-05-06",
+        "fecha_inicio": "2021-05-06",
+        "duracion_maxima": 5,
+        "fecha_termino": "2028-05-06",
+        "fecha_baja": null,
+        "valor": 32996,
+        "valorResidual": 0,
+        "cantidad": 1,
+        "tipoActivo": "M",
+        "estado": 1,
+        "planta": 9
+    }
+},
+{
+    "model": "afijo.activo",
+    "pk": 15,
+    "fields": {
+        "tipoDepreciacion": 1,
+        "nombre": "Extra",
+        "fecha_ingreso": "2021-05-14",
+        "fecha_inicio": "2021-05-14",
+        "duracion_maxima": 5,
+        "fecha_termino": "2028-05-06",
+        "fecha_baja": null,
+        "valor": 32446,
+        "valorResidual": 0,
+        "cantidad": 1,
+        "tipoActivo": "M",
+        "estado": 1,
+        "planta": 14
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 1,
+    "fields": {
+        "activo": 3,
+        "planta_origen": 10,
+        "planta_destino": 12,
+        "ts_movim": "2021-05-12T02:12:11.746Z",
+        "fecha_cambio": "2021-05-01"
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 14,
+    "fields": {
+        "activo": 8,
+        "planta_origen": 2,
+        "planta_destino": 8,
+        "ts_movim": "2021-05-14T20:01:48.126Z",
+        "fecha_cambio": "2021-05-14"
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 15,
+    "fields": {
+        "activo": 8,
+        "planta_origen": 2,
+        "planta_destino": 15,
+        "ts_movim": "2021-05-14T20:12:47.007Z",
+        "fecha_cambio": "2021-05-14"
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 16,
+    "fields": {
+        "activo": 8,
+        "planta_origen": 2,
+        "planta_destino": 12,
+        "ts_movim": "2021-05-14T20:15:50.827Z",
+        "fecha_cambio": "2021-05-14"
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 17,
+    "fields": {
+        "activo": 8,
+        "planta_origen": 2,
+        "planta_destino": 12,
+        "ts_movim": "2021-05-14T20:17:04.581Z",
+        "fecha_cambio": "2021-05-01"
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 18,
+    "fields": {
+        "activo": 8,
+        "planta_origen": 2,
+        "planta_destino": 12,
+        "ts_movim": "2021-05-14T20:18:32.451Z",
+        "fecha_cambio": "2021-05-01"
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 19,
+    "fields": {
+        "activo": 8,
+        "planta_origen": 2,
+        "planta_destino": 12,
+        "ts_movim": "2021-05-14T20:19:15.879Z",
+        "fecha_cambio": "2021-05-14"
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 20,
+    "fields": {
+        "activo": 8,
+        "planta_origen": 2,
+        "planta_destino": 7,
+        "ts_movim": "2021-05-14T20:26:41.707Z",
+        "fecha_cambio": "2021-05-14"
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 21,
+    "fields": {
+        "activo": 8,
+        "planta_origen": 2,
+        "planta_destino": 12,
+        "ts_movim": "2021-05-14T20:31:12.141Z",
+        "fecha_cambio": "2021-05-14"
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 22,
+    "fields": {
+        "activo": 8,
+        "planta_origen": 2,
+        "planta_destino": 11,
+        "ts_movim": "2021-05-14T20:34:33.759Z",
+        "fecha_cambio": "2021-05-14"
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 23,
+    "fields": {
+        "activo": 8,
+        "planta_origen": 2,
+        "planta_destino": 11,
+        "ts_movim": "2021-05-14T20:37:31.055Z",
+        "fecha_cambio": "2021-05-14"
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 24,
+    "fields": {
+        "activo": 8,
+        "planta_origen": 2,
+        "planta_destino": 11,
+        "ts_movim": "2021-05-14T20:37:49.774Z",
+        "fecha_cambio": "2021-05-14"
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 33,
+    "fields": {
+        "activo": 8,
+        "planta_origen": 2,
+        "planta_destino": 14,
+        "ts_movim": "2021-05-15T00:49:31.284Z",
+        "fecha_cambio": "2021-05-14"
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 34,
+    "fields": {
+        "activo": 8,
+        "planta_origen": 14,
+        "planta_destino": 2,
+        "ts_movim": "2021-05-15T01:03:19.112Z",
+        "fecha_cambio": "2021-05-14"
+    }
+},
+{
+    "model": "afijo.movimiento",
+    "pk": 40,
+    "fields": {
+        "activo": 8,
+        "planta_origen": 2,
+        "planta_destino": 9,
+        "ts_movim": "2021-05-17T20:36:39.794Z",
+        "fecha_cambio": "2021-05-17"
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 334,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2021-05-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 31905
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 335,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2021-06-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 31364
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 336,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2021-07-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 30823
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 337,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2021-08-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 30282
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 338,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2021-09-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 29742
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 339,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2021-10-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 29201
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 340,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2021-11-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 28660
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 341,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2021-12-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 28119
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 342,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2022-01-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 27579
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 343,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2022-02-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 27038
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 344,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2022-03-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 26497
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 345,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2022-04-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 25956
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 346,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2022-05-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 25416
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 347,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2022-06-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 24875
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 348,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2022-07-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 24334
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 349,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2022-08-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 23793
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 350,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2022-09-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 23252
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 351,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2022-10-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 22712
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 352,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2022-11-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 22171
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 353,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2022-12-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 21630
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 354,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2023-01-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 21089
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 355,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2023-02-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 20549
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 356,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2023-03-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 20008
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 357,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2023-04-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 19467
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 358,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2023-05-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 18926
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 359,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2023-06-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 18386
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 360,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2023-07-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 17845
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 361,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2023-08-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 17304
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 362,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2023-09-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 16763
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 363,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2023-10-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 16223
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 364,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2023-11-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 15682
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 365,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2023-12-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 15141
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 366,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2024-01-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 14600
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 367,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2024-02-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 14059
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 368,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2024-03-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 13519
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 369,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2024-04-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 12978
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 370,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2024-05-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 12437
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 371,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2024-06-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 11896
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 372,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2024-07-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 11356
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 373,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2024-08-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 10815
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 374,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2024-09-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 10274
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 375,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2024-10-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 9733
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 376,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2024-11-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 9193
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 377,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2024-12-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 8652
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 378,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2025-01-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 8111
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 379,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2025-02-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 7570
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 380,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2025-03-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 7029
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 381,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2025-04-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 6489
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 382,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2025-05-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 5948
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 383,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2025-06-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 5407
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 384,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2025-07-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 4866
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 385,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2025-08-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 4326
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 386,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2025-09-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 3785
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 387,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2025-10-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 3244
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 388,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2025-11-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 2703
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 389,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2025-12-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 2163
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 390,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2026-01-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 1622
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 391,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2026-02-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 1081
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 392,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2026-03-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 540
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 393,
+    "fields": {
+        "activo": 15,
+        "planta": 14,
+        "periodo": "2026-04-01",
+        "valor_depreciacion": 540,
+        "valor_contable": 0
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 394,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2021-05-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 32446
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 395,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2021-06-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 31896
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 396,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2021-07-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 31346
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 397,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2021-08-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 30796
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 398,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2021-09-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 30246
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 399,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2021-10-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 29696
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 400,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2021-11-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 29146
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 401,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2021-12-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 28596
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 402,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2022-01-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 28046
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 403,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2022-02-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 27496
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 404,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2022-03-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 26946
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 405,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2022-04-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 26396
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 406,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2022-05-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 25846
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 407,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2022-06-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 25296
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 408,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2022-07-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 24746
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 409,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2022-08-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 24197
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 410,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2022-09-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 23647
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 411,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2022-10-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 23097
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 412,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2022-11-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 22547
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 413,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2022-12-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 21997
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 414,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2023-01-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 21447
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 415,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2023-02-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 20897
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 416,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2023-03-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 20347
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 417,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2023-04-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 19797
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 418,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2023-05-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 19247
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 419,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2023-06-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 18697
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 420,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2023-07-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 18147
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 421,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2023-08-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 17597
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 422,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2023-09-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 17047
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 423,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2023-10-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 16497
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 424,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2023-11-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 15948
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 425,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2023-12-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 15398
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 426,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2024-01-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 14848
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 427,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2024-02-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 14298
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 428,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2024-03-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 13748
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 429,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2024-04-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 13198
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 430,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2024-05-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 12648
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 431,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2024-06-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 12098
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 432,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2024-07-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 11548
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 433,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2024-08-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 10998
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 434,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2024-09-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 10448
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 435,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2024-10-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 9898
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 436,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2024-11-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 9348
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 437,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2024-12-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 8798
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 438,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2025-01-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 8248
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 439,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2025-02-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 7699
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 440,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2025-03-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 7149
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 441,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2025-04-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 6599
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 442,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2025-05-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 6049
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 443,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2025-06-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 5499
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 444,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2025-07-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 4949
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 445,
+    "fields": {
+        "activo": 8,
+        "planta": 9,
+        "periodo": "2025-08-01",
+        "valor_depreciacion": 549,
+        "valor_contable": 4399
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 446,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2021-01-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 93416
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 447,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2021-02-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 91833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 448,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2021-03-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 90250
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 449,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2021-04-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 88666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 450,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2021-05-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 87083
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 451,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2021-06-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 85500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 452,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2021-07-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 83916
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 453,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2021-08-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 82333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 454,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2021-09-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 80750
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 455,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2021-10-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 79166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 456,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2021-11-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 77583
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 457,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2021-12-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 76000
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 458,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2022-01-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 74416
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 459,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2022-02-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 72833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 460,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2022-03-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 71250
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 461,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2022-04-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 69666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 462,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2022-05-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 68083
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 463,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2022-06-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 66500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 464,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2022-07-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 64916
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 465,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2022-08-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 63333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 466,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2022-09-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 61750
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 467,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2022-10-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 60166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 468,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2022-11-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 58583
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 469,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2022-12-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 57000
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 470,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2023-01-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 55416
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 471,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2023-02-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 53833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 472,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2023-03-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 52250
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 473,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2023-04-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 50666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 474,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2023-05-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 49083
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 475,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2023-06-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 47500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 476,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2023-07-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 45916
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 477,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2023-08-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 44333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 478,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2023-09-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 42750
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 479,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2023-10-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 41166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 480,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2023-11-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 39583
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 481,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2023-12-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 38000
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 482,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2024-01-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 36416
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 483,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2024-02-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 34833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 484,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2024-03-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 33250
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 485,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2024-04-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 31666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 486,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2024-05-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 30083
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 487,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2024-06-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 28500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 488,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2024-07-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 26916
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 489,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2024-08-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 25333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 490,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2024-09-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 23750
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 491,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2024-10-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 22166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 492,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2024-11-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 20583
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 493,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2024-12-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 19000
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 494,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2025-01-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 17416
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 495,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2025-02-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 15833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 496,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2025-03-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 14250
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 497,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2025-04-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 12666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 498,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2025-05-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 11083
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 499,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2025-06-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 9500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 500,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2025-07-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 7916
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 501,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2025-08-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 6333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 502,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2025-09-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 4750
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 503,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2025-10-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 3166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 504,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2025-11-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 1583
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 505,
+    "fields": {
+        "activo": 7,
+        "planta": 15,
+        "periodo": "2025-12-01",
+        "valor_depreciacion": 1583,
+        "valor_contable": 0
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 506,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2019-01-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 118958
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 507,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2019-02-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 117916
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 508,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2019-03-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 116874
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 509,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2019-04-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 115833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 510,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2019-05-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 114791
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 511,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2019-06-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 113749
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 512,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2019-07-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 112708
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 513,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2019-08-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 111666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 514,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2019-09-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 110624
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 515,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2019-10-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 109583
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 516,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2019-11-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 108541
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 517,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2019-12-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 107499
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 518,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2020-01-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 106458
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 519,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2020-02-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 105416
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 520,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2020-03-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 104374
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 521,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2020-04-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 103333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 522,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2020-05-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 102291
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 523,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2020-06-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 101249
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 524,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2020-07-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 100208
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 525,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2020-08-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 99166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 526,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2020-09-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 98124
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 527,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2020-10-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 97083
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 528,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2020-11-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 96041
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 529,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2020-12-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 94999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 530,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2021-01-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 93958
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 531,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2021-02-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 92916
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 532,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2021-03-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 91874
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 533,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2021-04-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 90833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 534,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2021-05-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 89791
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 535,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2021-06-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 88749
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 536,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2021-07-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 87708
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 537,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2021-08-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 86666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 538,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2021-09-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 85624
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 539,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2021-10-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 84583
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 540,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2021-11-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 83541
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 541,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2021-12-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 82499
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 542,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2022-01-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 81458
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 543,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2022-02-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 80416
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 544,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2022-03-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 79374
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 545,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2022-04-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 78333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 546,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2022-05-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 77291
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 547,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2022-06-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 76249
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 548,
+    "fields": {
+        "activo": 6,
+        "planta": 11,
+        "periodo": "2022-07-01",
+        "valor_depreciacion": 1041,
+        "valor_contable": 75208
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 549,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2021-02-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 98333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 550,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2021-03-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 96666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 551,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2021-04-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 94999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 552,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2021-05-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 93333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 553,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2021-06-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 91666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 554,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2021-07-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 89999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 555,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2021-08-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 88333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 556,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2021-09-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 86666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 557,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2021-10-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 84999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 558,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2021-11-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 83333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 559,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2021-12-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 81666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 560,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2022-01-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 79999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 561,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2022-02-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 78333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 562,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2022-03-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 76666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 563,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2022-04-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 74999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 564,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2022-05-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 73333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 565,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2022-06-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 71666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 566,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2022-07-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 69999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 567,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2022-08-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 68333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 568,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2022-09-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 66666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 569,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2022-10-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 64999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 570,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2022-11-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 63333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 571,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2022-12-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 61666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 572,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2023-01-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 59999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 573,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2023-02-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 58333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 574,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2023-03-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 56666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 575,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2023-04-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 54999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 576,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2023-05-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 53333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 577,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2023-06-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 51666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 578,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2023-07-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 49999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 579,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2023-08-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 48333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 580,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2023-09-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 46666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 581,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2023-10-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 44999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 582,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2023-11-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 43333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 583,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2023-12-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 41666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 584,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2024-01-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 39999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 585,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2024-02-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 38333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 586,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2024-03-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 36666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 587,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2024-04-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 34999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 588,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2024-05-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 33333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 589,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2024-06-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 31666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 590,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2024-07-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 29999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 591,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2024-08-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 28333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 592,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2024-09-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 26666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 593,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2024-10-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 24999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 594,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2024-11-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 23333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 595,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2024-12-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 21666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 596,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2025-01-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 19999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 597,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2025-02-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 18333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 598,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2025-03-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 16666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 599,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2025-04-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 14999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 600,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2025-05-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 13333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 601,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2025-06-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 11666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 602,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2025-07-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 9999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 603,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2025-08-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 8333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 604,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2025-09-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 6666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 605,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2025-10-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 4999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 606,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2025-11-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 3333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 607,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2025-12-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 1666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 608,
+    "fields": {
+        "activo": 5,
+        "planta": 2,
+        "periodo": "2026-01-01",
+        "valor_depreciacion": 1666,
+        "valor_contable": 0
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 609,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2021-05-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 77683
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 610,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2021-06-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 76366
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 611,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2021-07-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 75049
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 612,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2021-08-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 73733
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 613,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2021-09-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 72416
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 614,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2021-10-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 71099
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 615,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2021-11-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 69783
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 616,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2021-12-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 68466
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 617,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2022-01-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 67149
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 618,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2022-02-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 65833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 619,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2022-03-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 64516
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 620,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2022-04-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 63199
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 621,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2022-05-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 61883
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 622,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2022-06-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 60566
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 623,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2022-07-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 59249
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 624,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2022-08-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 57933
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 625,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2022-09-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 56616
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 626,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2022-10-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 55299
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 627,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2022-11-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 53983
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 628,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2022-12-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 52666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 629,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2023-01-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 51349
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 630,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2023-02-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 50033
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 631,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2023-03-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 48716
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 632,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2023-04-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 47399
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 633,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2023-05-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 46083
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 634,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2023-06-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 44766
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 635,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2023-07-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 43449
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 636,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2023-08-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 42133
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 637,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2023-09-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 40816
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 638,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2023-10-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 39500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 639,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2023-11-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 38183
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 640,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2023-12-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 36866
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 641,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2024-01-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 35550
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 642,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2024-02-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 34233
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 643,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2024-03-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 32916
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 644,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2024-04-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 31600
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 645,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2024-05-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 30283
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 646,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2024-06-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 28966
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 647,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2024-07-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 27650
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 648,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2024-08-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 26333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 649,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2024-09-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 25016
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 650,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2024-10-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 23700
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 651,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2024-11-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 22383
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 652,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2024-12-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 21066
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 653,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2025-01-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 19750
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 654,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2025-02-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 18433
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 655,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2025-03-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 17116
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 656,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2025-04-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 15799
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 657,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2025-05-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 14483
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 658,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2025-06-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 13166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 659,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2025-07-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 11850
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 660,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2025-08-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 10533
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 661,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2025-09-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 9216
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 662,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2025-10-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 7900
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 663,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2025-11-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 6583
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 664,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2025-12-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 5266
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 665,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2026-01-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 3950
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 666,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2026-02-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 2633
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 667,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2026-03-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 1316
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 668,
+    "fields": {
+        "activo": 4,
+        "planta": 1,
+        "periodo": "2026-04-01",
+        "valor_depreciacion": 1316,
+        "valor_contable": 0
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 669,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2021-05-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 335316
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 670,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2021-06-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 329633
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 671,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2021-07-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 323950
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 672,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2021-08-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 318266
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 673,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2021-09-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 312583
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 674,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2021-10-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 306900
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 675,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2021-11-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 301216
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 676,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2021-12-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 295533
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 677,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2022-01-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 289850
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 678,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2022-02-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 284166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 679,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2022-03-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 278483
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 680,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2022-04-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 272800
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 681,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2022-05-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 267116
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 682,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2022-06-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 261433
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 683,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2022-07-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 255750
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 684,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2022-08-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 250066
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 685,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2022-09-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 244383
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 686,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2022-10-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 238700
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 687,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2022-11-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 233016
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 688,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2022-12-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 227333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 689,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2023-01-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 221650
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 690,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2023-02-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 215966
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 691,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2023-03-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 210283
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 692,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2023-04-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 204600
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 693,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2023-05-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 198916
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 694,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2023-06-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 193233
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 695,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2023-07-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 187550
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 696,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2023-08-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 181866
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 697,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2023-09-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 176183
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 698,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2023-10-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 170500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 699,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2023-11-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 164816
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 700,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2023-12-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 159133
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 701,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2024-01-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 153450
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 702,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2024-02-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 147766
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 703,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2024-03-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 142083
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 704,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2024-04-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 136400
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 705,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2024-05-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 130716
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 706,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2024-06-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 125033
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 707,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2024-07-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 119350
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 708,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2024-08-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 113666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 709,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2024-09-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 107983
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 710,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2024-10-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 102300
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 711,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2024-11-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 96616
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 712,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2024-12-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 90933
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 713,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2025-01-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 85250
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 714,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2025-02-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 79566
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 715,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2025-03-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 73883
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 716,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2025-04-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 68200
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 717,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2025-05-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 62516
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 718,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2025-06-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 56833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 719,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2025-07-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 51150
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 720,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2025-08-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 45466
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 721,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2025-09-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 39783
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 722,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2025-10-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 34100
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 723,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2025-11-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 28416
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 724,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2025-12-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 22733
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 725,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2026-01-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 17050
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 726,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2026-02-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 11366
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 727,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2026-03-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 5683
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 728,
+    "fields": {
+        "activo": 3,
+        "planta": 1,
+        "periodo": "2026-04-01",
+        "valor_depreciacion": 5683,
+        "valor_contable": 0
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 729,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2021-05-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 138650
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 730,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2021-06-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 136300
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 731,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2021-07-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 133950
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 732,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2021-08-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 131600
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 733,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2021-09-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 129250
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 734,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2021-10-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 126900
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 735,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2021-11-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 124550
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 736,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2021-12-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 122200
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 737,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2022-01-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 119850
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 738,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2022-02-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 117500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 739,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2022-03-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 115150
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 740,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2022-04-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 112800
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 741,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2022-05-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 110450
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 742,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2022-06-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 108100
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 743,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2022-07-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 105750
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 744,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2022-08-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 103400
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 745,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2022-09-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 101050
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 746,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2022-10-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 98700
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 747,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2022-11-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 96350
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 748,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2022-12-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 94000
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 749,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2023-01-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 91650
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 750,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2023-02-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 89300
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 751,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2023-03-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 86950
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 752,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2023-04-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 84600
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 753,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2023-05-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 82250
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 754,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2023-06-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 79900
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 755,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2023-07-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 77550
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 756,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2023-08-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 75200
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 757,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2023-09-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 72850
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 758,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2023-10-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 70500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 759,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2023-11-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 68150
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 760,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2023-12-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 65800
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 761,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2024-01-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 63450
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 762,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2024-02-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 61100
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 763,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2024-03-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 58750
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 764,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2024-04-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 56400
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 765,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2024-05-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 54050
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 766,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2024-06-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 51700
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 767,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2024-07-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 49350
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 768,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2024-08-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 47000
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 769,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2024-09-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 44650
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 770,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2024-10-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 42300
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 771,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2024-11-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 39950
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 772,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2024-12-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 37600
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 773,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2025-01-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 35250
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 774,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2025-02-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 32900
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 775,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2025-03-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 30550
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 776,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2025-04-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 28200
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 777,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2025-05-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 25850
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 778,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2025-06-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 23500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 779,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2025-07-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 21150
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 780,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2025-08-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 18800
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 781,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2025-09-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 16450
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 782,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2025-10-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 14100
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 783,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2025-11-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 11750
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 784,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2025-12-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 9400
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 785,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2026-01-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 7050
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 786,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2026-02-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 4700
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 787,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2026-03-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 2350
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 788,
+    "fields": {
+        "activo": 2,
+        "planta": 2,
+        "periodo": "2026-04-01",
+        "valor_depreciacion": 2350,
+        "valor_contable": 0
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 789,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2021-05-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 1189833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 790,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2021-06-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 1169666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 791,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2021-07-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 1149499
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 792,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2021-08-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 1129333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 793,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2021-09-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 1109166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 794,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2021-10-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 1088999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 795,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2021-11-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 1068833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 796,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2021-12-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 1048666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 797,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2022-01-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 1028499
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 798,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2022-02-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 1008333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 799,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2022-03-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 988166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 800,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2022-04-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 967999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 801,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2022-05-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 947833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 802,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2022-06-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 927666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 803,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2022-07-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 907499
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 804,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2022-08-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 887333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 805,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2022-09-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 867166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 806,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2022-10-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 846999
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 807,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2022-11-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 826833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 808,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2022-12-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 806666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 809,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2023-01-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 786499
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 810,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2023-02-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 766333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 811,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2023-03-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 746166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 812,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2023-04-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 726000
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 813,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2023-05-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 705833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 814,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2023-06-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 685666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 815,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2023-07-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 665500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 816,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2023-08-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 645333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 817,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2023-09-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 625166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 818,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2023-10-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 605000
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 819,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2023-11-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 584833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 820,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2023-12-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 564666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 821,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2024-01-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 544500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 822,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2024-02-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 524333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 823,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2024-03-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 504166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 824,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2024-04-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 484000
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 825,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2024-05-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 463833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 826,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2024-06-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 443666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 827,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2024-07-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 423500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 828,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2024-08-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 403333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 829,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2024-09-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 383166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 830,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2024-10-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 363000
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 831,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2024-11-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 342833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 832,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2024-12-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 322666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 833,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2025-01-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 302500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 834,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2025-02-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 282333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 835,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2025-03-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 262166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 836,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2025-04-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 242000
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 837,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2025-05-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 221833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 838,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2025-06-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 201666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 839,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2025-07-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 181500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 840,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2025-08-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 161333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 841,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2025-09-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 141166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 842,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2025-10-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 121000
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 843,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2025-11-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 100833
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 844,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2025-12-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 80666
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 845,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2026-01-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 60500
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 846,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2026-02-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 40333
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 847,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2026-03-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 20166
+    }
+},
+{
+    "model": "afijo.activodepreciacion",
+    "pk": 848,
+    "fields": {
+        "activo": 1,
+        "planta": 1,
+        "periodo": "2026-04-01",
+        "valor_depreciacion": 20166,
+        "valor_contable": 0
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "afijo",
+        "model": "estado"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "afijo",
+        "model": "planta"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "afijo",
+        "model": "activo"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "auth",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+        "app_label": "afijo",
+        "model": "depreciacion"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+        "app_label": "afijo",
+        "model": "tipodepreciacion"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+        "app_label": "afijo",
+        "model": "activodepreciacion"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+        "app_label": "afijo",
+        "model": "movimiento"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "05t2g7yghe5wkd6wv7piluaut7s1qyzt",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-02-01T13:50:15.802Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "6nk2jy4tx8syufcvl27bdkgpt3zyjh00",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-02-01T15:17:48.449Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "97x6yakh2bdkv5ay0g0fv9v4lgazcokw",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-02-16T12:38:41.506Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "br3xgeiygir062t836mjv57kpj8c9aij",
+    "fields": {
+        "session_data": "MDNiNjNlZWEyYWQzYzAwMjNmZDI0ZTlkOTc0NWQyYmIxZDYxNzJjMTp7fQ==",
+        "expire_date": "2021-01-26T16:21:42.398Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "dtipxsw584rcfirb0ufg12pbov59edbj",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-02-11T14:39:14.417Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "epulgs0f8iwxdemr8ka8ukv29e62qaqc",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-08-04T17:41:48.001Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "es3qg8algmn9pcpnm1hq3sjyoqkvilyc",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-05-11T15:13:50.393Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "hiyzcboq97h0gdlst6hwub1oybzog042",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-06-09T14:44:39.783Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "i0bgs14isxbei04flxqdmwia9mvytpyo",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-05-24T14:52:55.924Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "ix8i1by38mtdtadlk4nkl4ksz4ghxjt2",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-06-09T14:44:59.499Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "kpsomlt89z69z5o1zxj7sa652k4gqecr",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-06-10T01:04:00.314Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "lcpbu5yvk72tgbnje493h14haoa213ni",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-01-21T16:32:43.485Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "oyadeke23gt7fz7ygewkcp60hixalbwh",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-05-18T17:45:57.600Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "r9eg20tn996r34wogyfrn407z30p0ntc",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-05-24T14:48:02.875Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "tmnw4d1kjvgewjym3x01jutrttclowtj",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-02-11T14:43:18.907Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "v7mvqllar74amjijk8kfalgg3mqsdjkg",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-02-16T19:18:08.581Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "w6b8y76gxyk0bm4sw8kq0j7crecqhzbh",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-01-26T19:53:37.399Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "wl7vb9o4zn3ajdp1c98xo11do39dulru",
+    "fields": {
+        "session_data": "NjJmZTc3ZGVmNWUyYTY2ZWE2MjdiN2JmZDFjMTY4NzIzMTRkODQ2Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTM5MWUxZTIyNGRlY2UwZDUxMzMwMzI5Y2EwMjViNDIzOGIzNTdjIn0=",
+        "expire_date": "2021-05-11T14:58:40.433Z"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add estado",
+        "content_type": 1,
+        "codename": "add_estado"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change estado",
+        "content_type": 1,
+        "codename": "change_estado"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete estado",
+        "content_type": 1,
+        "codename": "delete_estado"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view estado",
+        "content_type": 1,
+        "codename": "view_estado"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add planta",
+        "content_type": 2,
+        "codename": "add_planta"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change planta",
+        "content_type": 2,
+        "codename": "change_planta"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete planta",
+        "content_type": 2,
+        "codename": "delete_planta"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view planta",
+        "content_type": 2,
+        "codename": "view_planta"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add activo",
+        "content_type": 3,
+        "codename": "add_activo"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change activo",
+        "content_type": 3,
+        "codename": "change_activo"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete activo",
+        "content_type": 3,
+        "codename": "delete_activo"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view activo",
+        "content_type": 3,
+        "codename": "view_activo"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 4,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 4,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 4,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 4,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 5,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 5,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 5,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 5,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 6,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 6,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 6,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 6,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 7,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 7,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 7,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 7,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 8,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 8,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 8,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 8,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 9,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 9,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 9,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 9,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can add planta depreciacion",
+        "content_type": 10,
+        "codename": "add_plantadepreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can change planta depreciacion",
+        "content_type": 10,
+        "codename": "change_plantadepreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can delete planta depreciacion",
+        "content_type": 10,
+        "codename": "delete_plantadepreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can view planta depreciacion",
+        "content_type": 10,
+        "codename": "view_plantadepreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+        "name": "Can add depreciacion",
+        "content_type": 10,
+        "codename": "add_depreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+        "name": "Can change depreciacion",
+        "content_type": 10,
+        "codename": "change_depreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+        "name": "Can delete depreciacion",
+        "content_type": 10,
+        "codename": "delete_depreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+        "name": "Can view depreciacion",
+        "content_type": 10,
+        "codename": "view_depreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+        "name": "Can add tipo depreciacion",
+        "content_type": 11,
+        "codename": "add_tipodepreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+        "name": "Can change tipo depreciacion",
+        "content_type": 11,
+        "codename": "change_tipodepreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+        "name": "Can delete tipo depreciacion",
+        "content_type": 11,
+        "codename": "delete_tipodepreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+        "name": "Can view tipo depreciacion",
+        "content_type": 11,
+        "codename": "view_tipodepreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+        "name": "Can add activo depreciacion",
+        "content_type": 12,
+        "codename": "add_activodepreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+        "name": "Can change activo depreciacion",
+        "content_type": 12,
+        "codename": "change_activodepreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+        "name": "Can delete activo depreciacion",
+        "content_type": 12,
+        "codename": "delete_activodepreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+        "name": "Can view activo depreciacion",
+        "content_type": 12,
+        "codename": "view_activodepreciacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+        "name": "Can add movimiento",
+        "content_type": 13,
+        "codename": "add_movimiento"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+        "name": "Can change movimiento",
+        "content_type": 13,
+        "codename": "change_movimiento"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+        "name": "Can delete movimiento",
+        "content_type": 13,
+        "codename": "delete_movimiento"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+        "name": "Can view movimiento",
+        "content_type": 13,
+        "codename": "view_movimiento"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$9x72lLEhSGgG$qqkEyubKTnkkwQDPBmieQAC/YDReoXWtZYhLv+BsFRc=",
+        "last_login": "2021-07-21T17:41:47.998Z",
+        "is_superuser": true,
+        "username": "desa",
+        "first_name": "",
+        "last_name": "",
+        "email": "andres.galaz@compustrom.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-01-07T16:32:35.738Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2021-01-07T16:42:20.324Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "1",
+        "object_repr": "Notebook 5432",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2021-01-07T16:55:08.677Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "1",
+        "object_repr": "AB1308, El Oto\u00f1o 501",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2021-01-07T16:55:31.027Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "1",
+        "object_repr": "Notebook 5432",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"planta\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2021-01-07T19:24:25.410Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "2",
+        "object_repr": "AB0610, Avenida Salvador Allende 273",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2021-01-07T19:24:34.152Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "2",
+        "object_repr": "Impresora HP 100",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2021-01-13T20:41:23.683Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "3",
+        "object_repr": "Escritorio Oficina",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2021-01-13T20:42:13.038Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "4",
+        "object_repr": "Silla para escritorio",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2021-02-02T13:09:26.800Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Mueble Rojo  2000*370 color caf\u00e9",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2021-04-28T17:44:47.724Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "4",
+        "object_repr": "Spike",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"nombre\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2021-04-28T17:46:04.960Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "4",
+        "object_repr": "Silla para escritorio",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"nombre\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2021-04-29T20:24:54.718Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "1",
+        "object_repr": "Lineal",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2021-04-29T20:25:13.966Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "2",
+        "object_repr": "Acelerada",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2021-04-30T17:44:00.257Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "Serrucho",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2021-04-30T20:47:45.587Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "Silla",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"nombre\", \"fecha_inicio\", \"duracion_maxima\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2021-04-30T20:48:40.356Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "Silla Modelo K",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"nombre\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2021-04-30T21:00:10.638Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "Silla Modelo K",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"cantidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2021-04-30T21:01:38.234Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "Silla Modelo K",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"estado\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2021-04-30T21:02:24.727Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "Silla Modelo K",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"cantidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2021-04-30T21:03:20.120Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Mueble Rojo  370 color caf\u00e9",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"nombre\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2021-04-30T21:08:32.893Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Mueble modeerno 370 color caf\u00e9",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"nombre\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2021-04-30T21:11:39.280Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Mueble moderno 370 color caf\u00e9",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"nombre\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2021-04-30T21:17:55.012Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Mueble moderno 370",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"nombre\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2021-04-30T21:18:47.107Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "Silla Modelo K",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_inicio\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2021-04-30T21:21:08.860Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Mueble moderno 370",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_inicio\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2021-04-30T21:23:51.564Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "4",
+        "object_repr": "Silla para escritorio D10",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"nombre\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2021-04-30T21:24:09.520Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "4",
+        "object_repr": "Silla para escritorio D10",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_inicio\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2021-04-30T21:24:17.235Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "3",
+        "object_repr": "Escritorio Oficina",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_inicio\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2021-04-30T21:24:23.676Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "2",
+        "object_repr": "Impresora HP 100",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_inicio\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2021-04-30T21:24:38.615Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "1",
+        "object_repr": "Notebook 5432",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_inicio\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2021-04-30T21:24:38.619Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "1",
+        "object_repr": "Notebook 5432",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_inicio\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2021-04-30T21:56:37.691Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Mueble moderno 370",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_inicio\", \"fecha_termino\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2021-05-04T17:46:37.274Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "Silla Modelo K",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_ingreso\", \"fecha_inicio\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2021-05-04T17:47:36.871Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "Silla Modelo K",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"valor\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2021-05-04T17:48:27.270Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "Silla Modelo K",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"valor\", \"valorResidual\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2021-05-04T17:50:53.695Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Mueble moderno 370",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_inicio\", \"fecha_termino\", \"valor\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2021-05-05T21:14:40.651Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "15",
+        "object_repr": "AB1507, Calle 3 Norte 130, Arica, ARICA Y PARINACOTA",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_termino\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2021-05-05T21:15:07.994Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "15",
+        "object_repr": "AB1507, Calle 3 Norte 130, Arica, ARICA Y PARINACOTA",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"duracion_concesion\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2021-05-05T21:29:30.348Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "16",
+        "object_repr": "Borrar, No tiene",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2021-05-05T21:29:53.056Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "16",
+        "object_repr": "Borrar, No tiene",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2021-05-05T22:07:23.736Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "7",
+        "object_repr": "Ejemplo",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2021-05-05T22:08:33.015Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "7",
+        "object_repr": "Ejemplo",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"valor\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2021-05-05T22:10:16.872Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "15",
+        "object_repr": "AB1507, Calle 3 Norte 130, Arica, ARICA Y PARINACOTA",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_depreciacion\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2021-05-05T22:12:32.237Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "15",
+        "object_repr": "AB1507, Calle 3 Norte 130, Arica, ARICA Y PARINACOTA",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_depreciacion\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2021-05-05T22:13:11.060Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "15",
+        "object_repr": "AB1507, Calle 3 Norte 130, Arica, ARICA Y PARINACOTA",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_depreciacion\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2021-05-05T22:14:12.178Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "15",
+        "object_repr": "AB1507, Calle 3 Norte 130, Arica, ARICA Y PARINACOTA",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_depreciacion\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2021-05-05T22:14:55.184Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "15",
+        "object_repr": "AB1507, Calle 3 Norte 130, Arica, ARICA Y PARINACOTA",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_depreciacion\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2021-05-05T22:16:08.693Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "15",
+        "object_repr": "AB1507, Calle 3 Norte 130, Arica, ARICA Y PARINACOTA",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_depreciacion\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2021-05-05T22:20:32.376Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "15",
+        "object_repr": "AB1507, Calle 3 Norte 130, Arica, ARICA Y PARINACOTA",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_depreciacion\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2021-05-05T22:21:32.807Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "15",
+        "object_repr": "AB1507, Calle 3 Norte 130, Arica, ARICA Y PARINACOTA",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_depreciacion\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2021-05-06T18:56:56.426Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "2",
+        "object_repr": "AB0610, Avenida Salvador Allende 273, Rancagua, RM",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_termino\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2021-05-06T19:19:14.490Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "8",
+        "object_repr": "Extra",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2021-05-07T02:01:17.414Z",
+        "user": 1,
+        "content_type": 2,
+        "object_id": "1",
+        "object_repr": "AB1308, El Oto\u00f1o 501, Lampa, RM",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_inicio\", \"fecha_termino\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+        "action_time": "2021-05-10T14:50:49.450Z",
+        "user": 1,
+        "content_type": 1,
+        "object_id": "3",
+        "object_repr": "Anactivo",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"descripcion\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+        "action_time": "2021-05-10T14:51:11.462Z",
+        "user": 1,
+        "content_type": 1,
+        "object_id": "2",
+        "object_repr": "Depreciandose",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"descripcion\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+        "action_time": "2021-05-10T14:51:21.216Z",
+        "user": 1,
+        "content_type": 1,
+        "object_id": "1",
+        "object_repr": "Baja",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"descripcion\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+        "action_time": "2021-05-12T01:51:35.496Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "8",
+        "object_repr": "Extra",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_inicio\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+        "action_time": "2021-05-12T01:54:34.307Z",
+        "user": 1,
+        "content_type": 1,
+        "object_id": "3",
+        "object_repr": "Inactivo",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"descripcion\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+        "action_time": "2021-05-12T01:54:48.911Z",
+        "user": 1,
+        "content_type": 1,
+        "object_id": "3",
+        "object_repr": "Activo",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"descripcion\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+        "action_time": "2021-05-12T02:12:11.771Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "1",
+        "object_repr": "Movimiento object (1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+        "action_time": "2021-05-12T02:12:55.410Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "1",
+        "object_repr": "Movimiento object (1)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_cambio\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+        "action_time": "2021-05-14T15:24:25.572Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "1",
+        "object_repr": "Movimiento object (1)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"activo\", \"planta_destino\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+        "action_time": "2021-05-14T20:01:48.139Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "14",
+        "object_repr": "Movimiento object (14)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+        "action_time": "2021-05-14T20:12:47.018Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "15",
+        "object_repr": "Movimiento object (15)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+        "action_time": "2021-05-14T20:15:50.850Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "16",
+        "object_repr": "Movimiento object (16)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+        "action_time": "2021-05-14T20:17:04.608Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "17",
+        "object_repr": "Movimiento object (17)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+        "action_time": "2021-05-14T20:18:32.459Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "18",
+        "object_repr": "Movimiento object (18)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 67,
+    "fields": {
+        "action_time": "2021-05-14T20:19:15.893Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "19",
+        "object_repr": "Movimiento object (19)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+        "action_time": "2021-05-14T20:26:41.723Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "20",
+        "object_repr": "Movimiento object (20)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+        "action_time": "2021-05-14T20:31:12.171Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "21",
+        "object_repr": "Movimiento object (21)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+        "action_time": "2021-05-14T20:34:33.772Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "22",
+        "object_repr": "Movimiento object (22)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+        "action_time": "2021-05-14T20:37:31.084Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "23",
+        "object_repr": "Movimiento object (23)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+        "action_time": "2021-05-14T20:37:49.787Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "24",
+        "object_repr": "Movimiento object (24)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+        "action_time": "2021-05-15T00:49:31.368Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "33",
+        "object_repr": "Movimiento object (33)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+        "action_time": "2021-05-15T01:03:19.214Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "34",
+        "object_repr": "Movimiento object (34)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+        "action_time": "2021-05-15T01:03:57.228Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "14",
+        "object_repr": "Extra",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+        "action_time": "2021-05-17T20:36:39.826Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "40",
+        "object_repr": "Movimiento object (40)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+        "action_time": "2021-05-18T02:21:02.860Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "8",
+        "object_repr": "Extra",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"fecha_baja\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+        "action_time": "2021-05-18T02:21:11.615Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "15",
+        "object_repr": "Extra",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 79,
+    "fields": {
+        "action_time": "2021-05-18T02:21:17.204Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "8",
+        "object_repr": "Extra",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+        "action_time": "2021-05-18T02:21:32.680Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "7",
+        "object_repr": "Gases",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"nombre\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 81,
+    "fields": {
+        "action_time": "2021-05-18T02:21:39.176Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "Silla Modelo K",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 82,
+    "fields": {
+        "action_time": "2021-05-18T02:21:45.196Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "5",
+        "object_repr": "Mueble moderno 370",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 83,
+    "fields": {
+        "action_time": "2021-05-18T02:21:54.657Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "4",
+        "object_repr": "Silla para escritorio D10",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"valor\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+        "action_time": "2021-05-18T02:22:04.222Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "3",
+        "object_repr": "Escritorio Oficina",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"valor\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+        "action_time": "2021-05-18T02:22:21.554Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "2",
+        "object_repr": "Impresora HP 100",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"valor\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+        "action_time": "2021-05-18T02:22:35.919Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "1",
+        "object_repr": "Notebook 5432",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"valor\"]}}]"
+    }
+}
+]

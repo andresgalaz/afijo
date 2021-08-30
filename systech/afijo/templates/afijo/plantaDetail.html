@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <a href="/">
+                <img src="http://systechchile.cl/Images/dual_logo.png" class="img-fluid" />
+            </a>
+        </div>
+    </div>
+
+    <div class="card card-block" style="padding: 8px;">
+        <p class="card-text">{{planta}}
+            <a href="javascript:history.back()" class="btn btn-primary btn-sm float-right">Volver</a>
+         </p>
+    </div>    
+    
+    <div class="row mt-5">
+        <div class="col">
+            <!-- <div class="card"> -->
+            <!-- <div class="card-body"> -->
+            {% if activo_list %}
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Fecha Ingreso</th>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Término</th>
+                        <th>Duración</th>
+                        <th>Cantidad</th>
+                        <th>Valor</th>
+                        <th>Tipo</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for itm in activo_list %}
+                        <tr>
+                        <td>{{ itm.nombre }}</td>
+                        <td>{{ itm.fecha_ingreso|date:'d/m/Y' }}</td>
+                        <td>{{ itm.fecha_inicio|date:'d/m/Y' }}</td>
+                        <td>{{ itm.fecha_termino|date:'d/m/Y' }}</td>
+                        <td>{{ itm.duracion_maxima }}</td>
+                        <td align="right">{{ itm.cantidad }}</td>
+                        <td align="right">{{ itm.valor }}</td>
+                        <td>{{ itm.tipoActivo }}</td>
+                        <td>{{ itm.estado }}</td>
+                        <td>
+                            <a href="#" 
+                                onclick='window.open("{% url 'admin:afijo_activo_change' itm.id %}", "popup_edit","width=1200,height=900")' class="btn btn-secondary btn-sm my-0 ">        
+                                Editar
+                            </a>
+                            <a href="#" 
+                                onclick='window.open("{% url 'admin:afijo_movimiento_add' %}?activo={{itm.id}}", "popup_move","width=1200,height=500")' class="btn btn-secondary btn-sm my-0 ">
+                                <span class="glyphicon glyphicon-plus"> </span>
+                                Mover
+                            </a>
+                        </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No hay activos asignados a esta planta.</p>
+            {% endif %}
+            <!-- </div> -->
+            <!-- </div> -->
+    </div>
+</div>    
+
+{% endblock %}

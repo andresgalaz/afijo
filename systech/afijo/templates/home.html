@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div aria-live="polite" aria-atomic="true" style="position: absolute; top: 0; right: 0; min-height: 200px; z-index: 1060;">
+  <!-- Position it -->
+  <div style="position: relative; top: 0; right: 0;">
+
+    <!-- Then put toasts within -->
+    {% if messages %}
+    {% for message in messages %}
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="true" data-delay="5000">
+          <div class="card">
+              <div class="card-body bg-{{ message.tags }} text-white">
+                  <div class="row">
+                      <div class="col">
+                        {{ message }}
+                      </div>
+                      <div class="col-auto">
+                        <button type="button" class=" close text-white" data-dismiss="toast" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <a href="/">
+                <img src="http://systechchile.cl/Images/dual_logo.png" class="img-fluid" />
+            </a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    Menú Sistema Activo Fijo
+                </div>
+                <div class="card-body">
+                    <a class="btn w-100 btn-primary" href="../admin/afijo">ADMINISTRACION</a>
+                    <a class="btn w-100 btn-primary" href="../admin/auth">SEGURIDAD</a>
+
+                    <a class="btn w-100 btn-primary" href="{% url 'lisActivosPlanta' %}">ACTIVOS POR PLANTA</a>
+                    <a class="btn w-100 btn-primary" href="{% url 'lisDepreciacionPlanta' %}">DEPRECIACION PLANTA</a>
+
+                    <a class="btn w-100 btn-warning" href="{% url 'logout' %}">CERRAR SESIÓN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+
+<script>
+$(function (){
+    $(".toast").toast("show");
+});
+</script>
+
+{% endblock %}

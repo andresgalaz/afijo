@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Login Systech{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <a href="/">
+                <img src="http://systechchile.cl/Images/dual_logo.png" class="img-fluid" />
+            </a>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+        <div class="card">
+            <form class="text-center p-5" method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+                <p class="h4 mb-4">Ingresar a sistema Systech</p>
+
+                {% if next %}
+                    {% if user.is_authenticated %}
+                    <p>Your account doesn't have access to this page. To proceed,
+                    please login with an account that has access.</p>
+                    {% else %}
+                    <p>Debe ingresar sus datos para ver esta página</p>
+                    {% endif %}
+                {% endif %}
+                {% if form.errors %}
+            <p class="text-danger">Su usuario o contraseña es invalido.</p>
+            {% endif %}
+            <input type="username" id="{{ form.username.name }}_id" name="{{ form.username.name }}" class="form-control mb-4" value="{{ form.username.value|default_if_none:"" }}" placeholder="{{ form.username.label }}">
+            <input type="password" id="{{ form.password.name }}_id" name="{{ form.password.name }}" class="form-control mb-4" value="{{ form.password.value|default_if_none:"" }}" placeholder="{{ form.password.label }}">
+
+            <input type="hidden" name="next" value="{{ next }}">
+            <input class="btn btn-primary btn-block my-4" type="submit" value="Ingresar">
+
+            </form>
+        </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

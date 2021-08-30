@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <a href="/">
+                <img src="http://systechchile.cl/Images/dual_logo.png" class="img-fluid" />
+            </a>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <div class="card">
+            <div class="card-body">
+            <h1>{{ planta.nombre }}</h1>
+
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+            <form action="{% url 'activoForm' %}" method="post">
+            {% csrf_token %}
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" value="{{ planta.nombre }}">
+                <br>
+                <label for="ubicacion">Ubicación</label>
+                <input type="text" name="ubicacion" id="ubicacion" value="{{ planta.ubicacion }}">
+                <br>
+                <input type="submit" value="Vote">
+            </form>
+        </div>
+    </div>
+</div>
+</div>    
+
+{% endblock %}

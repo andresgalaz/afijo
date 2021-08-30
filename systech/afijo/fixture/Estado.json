@@ -1,0 +1,23 @@
+[
+	{
+		"model" : "afijo.Estado",
+		"pk": 1,
+		"fields" :{
+			"description":"Activo por depreciar"
+		}
+	},
+	{
+		"model" : "afijo.Estado",
+		"pk": 2,
+		"fields" :{
+			"description":"Activo en proceso de depreciación"
+		}
+	},
+	{
+		"model" : "afijo.Estado",
+		"pk": 3,
+		"fields" :{
+			"description":"Activo depreciado en forma acelerada"
+		}
+	}
+]

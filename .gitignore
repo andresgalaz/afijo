@@ -1,0 +1,7 @@
+.vscode/
+**/*.pyc
+*/*.pyc
+*.pyc
+*.swp
+*~
+*.tgz

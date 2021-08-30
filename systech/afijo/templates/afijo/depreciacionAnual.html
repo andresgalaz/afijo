@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <a href="/">
+                <img src="http://systechchile.cl/Images/dual_logo.png" class="img-fluid" />
+            </a>
+        </div>
+    </div>
+
+    <div class="card card-block" style="padding: 8px;">
+        <p class="card-text">{{planta}}
+            <a href="javascript:history.back()" class="btn btn-primary btn-sm float-right">Volver</a>
+         </p>
+    </div>    
+
+    <div class="row mt-5">
+        <div class="col">
+            <!-- <div class="card"> -->
+            <!-- <div class="card-body"> -->
+            {% if periodo_list %}
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Depreciación</th>
+                        <th>Valor Contable</th>
+                        <th>Acción</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for itm in periodo_list %}
+                        <tr>
+                        <td>{{ itm.year|stringformat:'d' }}</td>
+                        <td align="right">{{ itm.depreciacion }}</td>
+                        <td align="right">{{ itm.contable }}</td>
+                        <td align="center"><a href="{% url 'plantaDepreciacion' itm.year planta.id %}" class="btn btn-secondary btn-sm my-0 ">Mensual</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No hay periodos calculados de depreciación para esta planta.</p>
+            {% endif %}
+            <!-- </div> -->
+            <!-- </div> -->
+    </div>
+</div>    
+
+{% endblock %}
