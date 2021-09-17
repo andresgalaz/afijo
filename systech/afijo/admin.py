@@ -23,28 +23,42 @@ class SoloLectura(admin.ModelAdmin):
 
 
 class PlantaAdminForm(admin.ModelAdmin):
+    list_display = ('nombre', 'ubicacion', 'fecha_inicio', 'fecha_termino',
+                    'fecha_depreciacion', 'get_region')
+    list_select_related = ['region']
+
+    search_fields = ('nombre', 'ubicacion', 'region__nombre')
+
     def has_delete_permission(self, request, obj=None):
         return False
 
+    def get_region(self, obj):
+        return obj.region.nombre
+
+    get_region.short_description = "Región"
+
 
 class ActivoAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'fecha_inicio', 'fecha_termino',
-                    'valor', 'estado', 'planta')
-    # form = ActivoAdminForm
+    list_display = ('nombre', 'fecha_inicio', 'fecha_termino', 'valor',
+                    'estado', 'planta')
+    search_fields = ('nombre', 'modelo')
 
 
 class MovimientoAdmin(admin.ModelAdmin):
     fields = ('activo', 'planta_destino', 'fecha_cambio')
-    list_display = ('activo', 'get_origen', 'get_destino',
-                    'fecha_cambio', 'ts_movim')
+    list_display = ('activo', 'get_origen', 'get_destino', 'fecha_cambio',
+                    'ts_movim')
+
     # form = MovimForm
 
     def get_origen(self, obj):
         return obj.planta_origen.nombre
+
     get_origen.short_description = "Planta Origen"
 
     def get_destino(self, obj):
         return obj.planta_destino.nombre
+
     get_destino.short_description = "Planta Destino"
 
     def has_delete_permission(self, request, obj=None):
@@ -52,6 +66,7 @@ class MovimientoAdmin(admin.ModelAdmin):
 
     def has_change_permission(self, request, obj=None):
         return False
+
     # def get_changeform_initial_data(self, request):
     #     return {'activo': 6}
 

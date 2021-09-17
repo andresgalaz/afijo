@@ -1,6 +1,6 @@
 import os
 
-ALLOWED_HOSTS = [ 'localhost', 'afijo.systechchile.cl', 'afijo.compustrom.com'  ]
+ALLOWED_HOSTS = ['localhost', 'afijo.systechchile.cl', 'afijo.compustrom.com']
 
 DATABASES = {
     'default': {
@@ -12,6 +12,7 @@ DATABASES = {
         'PORT': '',
     }
 }
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_URL = '/static/'
@@ -64,7 +65,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'systech.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -73,35 +73,35 @@ WSGI_APPLICATION = 'systech.wsgi.application'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 LANGUAGE_CODE = 'es-CL'
-NUMBER_GROUPING=3
-USE_THOUSAND_SEPARATOR=True
+NUMBER_GROUPING = 3
+USE_THOUSAND_SEPARATOR = True
 TIME_ZONE = 'America/Santiago'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
-
 
 LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/home'
@@ -109,7 +109,6 @@ LOGOUT_REDIRECT_URL = '/login'
 
 import logging
 
-logging.basicConfig(
-    level = logging.INFO,
-    #format = " %(levelname)s %(name)s: %(message)s",
-)
+logging.basicConfig(level=logging.INFO,
+                    #format = " %(levelname)s %(name)s: %(message)s",
+                    )

@@ -12,7 +12,7 @@
 
     <div class="card card-block" style="padding: 8px;">
         <p class="card-text">{{planta}} &nbsp;&nbsp;&nbsp; Año {{year|stringformat:'d'}}
-            <a href="javascript:history.back()" class="btn btn-primary btn-sm float-right">Volver</a>
+            <a href="{% url 'lisDepreciacionPlanta' %}" class="btn btn-primary btn-sm float-right">Volver</a>
          </p>
     </div>    
 
