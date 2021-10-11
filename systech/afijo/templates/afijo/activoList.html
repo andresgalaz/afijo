@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <a href="/">
+                <img src="http://systechchile.cl/Images/dual_logo.png" class="img-fluid" />
+            </a>
+        </div>
+    </div>
+
+    <div class="card card-block" style="padding: 8px;">
+        <h2 class="card-text">Activos por Planta
+            <a href="/home" class="btn btn-primary btn-sm float-right" style='width: 100px;'>Menú</a>
+        </h2>
+    </div>  
+    
+</div>
+    
+<div style="margin:0 40px 0 40px;">
+    <div class="card card-block mt-3" >
+        <form action="" method="get" class="form-inline">
+            {% csrf_token %}       
+            {% for field in form.visible_fields %}
+                <div class="form-group m-4">
+                    {{ field.label_tag }}&nbsp;{{ field }}
+                </div>
+            {% endfor %}
+            <hr class="separator">
+            <a href='activoListCsv?planta={{form.data.planta}}&periodo={{form.data.periodo}}' target="activoListCsv" class="btn btn-primary btn-sm " style='width: 100px;'>CSV</a>
+            <input type="submit" class='btn btn-primary btn-sm float-right' value='Filtrar'  style='width: 100px;'/>
+        </form>
+    </div>
+
+    {% include "../paginacion.html" %}    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope='col'>#</th>
+                {% if form.data.planta == '' %}
+                <th scope='col'>Planta</th>
+                {% endif %}
+                <th scope='col'>Tipo</th>
+                <th scope='col'>Nombre</th>
+                <th scope='col'>Ubicacion</th>
+                <th scope='col'>Factura</th>
+                <th scope='col' style='text-align:center;'>Fecha Ingreso</th>
+                <th scope='col' style='text-align:center;'>Fecha Comienzo</th>
+                <th scope='col' style='text-align:center;'>Fecha Termino</th>
+                <th scope='col' style='text-align:center;'>Vida Útil</th>
+                <th scope='col' style='text-align:right;'>Valor de Origen</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for activo in activo_list %}
+            <tr>
+                <th scope="row">{{ page_obj.start_index | add:forloop.counter0 }}</th>
+                {% if form.data.planta == '' %}
+                <td>{{ activo.planta }}</td>
+                {% endif %}
+                <td>{{ activo.getTipoActivo }}</td>
+                <td>{{ activo.nombre }}</td>
+                <td>{{ activo.ubicacion }}</td>
+                <td>{{ activo.proveedor }} {{ activo.numero_factura }}</td>
+                <!-- <td align="right">{{ activo.cantidad }}</td> -->
+                <td align="middle">{{ activo.fecha_ingreso|date:'d/m/Y' }}</td>
+                <td align="middle">{{ activo.fecha_inicio|date:'d/m/Y' }}</td>
+                <td align="middle">{{ activo.fecha_termino|date:'d/m/Y' }}</td>
+                <td align="middle">{% widthratio activo.duracion_maxima 1 12%}</td>
+                <td align="right">{{ activo.valor }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% include "../paginacion.html" %}    
+</div>
+
+
+{% endblock %}

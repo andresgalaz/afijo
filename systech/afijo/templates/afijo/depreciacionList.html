@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <a href="/">
+                <img src="http://systechchile.cl/Images/dual_logo.png" class="img-fluid" />
+            </a>
+        </div>
+    </div>
+
+    <div class="card card-block" style="padding: 8px;">
+        <h2 class="card-text">Depreciación Activos por Planta
+            <a href="/home" class="btn btn-primary btn-sm float-right" style='width: 100px;'>Menú</a>
+        </h2>
+    </div>  
+    
+</div>
+    
+<div style="margin:0 40px 0 40px;">
+    <div class="card card-block mt-3" >
+        <form action="" method="get" class="form-inline">
+            {% csrf_token %}       
+            {% for field in form.visible_fields %}
+                <div class="form-group m-4">
+                    {{ field.label_tag }}&nbsp;{{ field }}
+                </div>
+            {% endfor %}
+            <hr class="separator">
+            <a href='depreciacionCsv?planta={{form.data.planta}}&periodo={{form.data.periodo}}' target="depreciacionCsv" class="btn btn-primary btn-sm " style='width: 100px;'>CSV</a>
+            <input type="submit" class='btn btn-primary btn-sm' value='Filtrar'  style='width: 100px;'/>
+        </form>
+    </div>
+
+
+    {% include "../paginacion.html" %}    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <!-- <th scope='col'>#</th> -->
+                <th scope='col'>Tipo</th>
+                <th scope='col'>Nombre</th>
+                <th scope='col'>Nº</th>
+                {% if form.data.listFull == 'on' %}
+                <th scope='col'>Ubicacion</th>
+                <th scope='col'>Factura</th>
+                {% endif %}
+                <th scope='col' style='text-align:center;'>Fecha Ingreso</th>
+                <th scope='col' style='text-align:center;'>Fecha Inicio</th>
+                <th scope='col' style='text-align:center;'>Fecha Termino</th>
+                <th scope='col' style='text-align:center;'>Clase Vida</th>
+                <th scope='col' style='text-align:center;'>Vida Útil</th>
+                <th scope='col' style='text-align:right;'>Valor de Origen</th>
+                <th scope='col' style='text-align:right;'>Valor Contable</th>
+                <th scope='col' style='text-align:right;'>Depreciación Mes</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for depmes in depreciacion_list %}
+            <tr>
+                <!-- <th scope="row">{{ page_obj.start_index | add:forloop.counter0 }}</th> -->
+                <td>{{ depmes.activo.getTipoActivo }}</td>
+                <td>{{ depmes.activo.nombre }}</td>
+                <td>{{ depmes.activo.numero_interno }}</td>
+                {% if form.data.listFull == 'on' %}
+                <td>{{ depmes.activo.ubicacion }}</td>
+                <td>{{ depmes.activo.proveedor }} {{ depmes.activo.numero_factura }}</td>
+                {% endif %}
+                <td align="middle">{{ depmes.activo.fecha_ingreso|date:'d/m/Y' }}</td>
+                <td align="middle">{{ depmes.planta.fecha_depreciacion|date:'d/m/Y' }}</td>
+                <td align="middle">{{ depmes.planta.fecha_termino|date:'d/m/Y' }}</td>
+                <td align="middle">{{ depmes.activo.duracion_clase }}
+                    {% if depmes.activo.vida_util_compra %} compra {% endif %}
+                </td>
+                <td align="middle">{{ depmes.duracion_real }}</td>
+                <td align="right">{{ depmes.activo.valor }}</td>
+                <td align="right">{{ depmes.valor_contable }}</td>
+                <td align="right">{{ depmes.valor_depreciacion }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% include "../paginacion.html" %}    
+</div>
+
+
+{% endblock %}

@@ -47,7 +47,10 @@
                     <a class="btn w-100 btn-primary" href="../admin/afijo">ADMINISTRACION</a>
                     <a class="btn w-100 btn-primary" href="../admin/auth">SEGURIDAD</a>
 
-                    <a class="btn w-100 btn-primary" href="{% url 'lisActivosPlanta' %}">ACTIVOS POR PLANTA</a>
+                    <a class="btn w-100 btn-primary" href="{% url 'activoList' %}">LISTADO ACTIVOS</a>
+                    <a class="btn w-100 btn-primary" href="{% url 'depreciacionList' %}">DEPRECIACION ACTIVOS</a>
+
+                    <!-- <a class="btn w-100 btn-primary" href="{% url 'lisActivosPlanta' %}">ACTIVOS POR PLANTA</a> -->
                     <a class="btn w-100 btn-primary" href="{% url 'lisDepreciacionPlanta' %}">DEPRECIACION PLANTA</a>
 
                     <a class="btn w-100 btn-warning" href="{% url 'logout' %}">CERRAR SESIÓN</a>

@@ -57,6 +57,8 @@ class Planta(models.Model):
     duracion_concesion = models.IntegerField('Duración de la Concesión')
     activa = models.BooleanField('Depreciación Activa', default=True)
 
+    #sobre_termino = models.IntegerField('Sobre tiempo depreciación', default=0)
+
     def __str__(self):
         return self.nombre + '  ' + self.ubicacion + ', ' + self.region.nombre
 
@@ -101,6 +103,11 @@ class Activo(models.Model):
         ('S', 'Software'),
         ('U', 'Muebles y Utiles'),
     ]
+    ClaseDuracion = [
+        ('C', 'Desde Concesión'),
+        ('C24', 'Dos años mas desde Concesión'),
+        ('T', 'Tributaria'),
+    ]
     tipoDepreciacion = models.ForeignKey(TipoDepreciacion,
                                          default=1,
                                          on_delete=models.CASCADE)
@@ -144,12 +151,17 @@ class Activo(models.Model):
     fecha_inicio = models.DateField('Fecha Inicio Depreciación',
                                     null=True,
                                     blank=True)
-    duracion_maxima = models.IntegerField('Duración Depreciación [años]',
-                                          default=5)
+    duracion_maxima = models.IntegerField('Duración Depreciación [meses]',
+                                          default=36)
+    duracion_clase = models.CharField(max_length=5,
+                                      choices=ClaseDuracion,
+                                      default='T')
     fecha_termino = models.DateField('Fecha Término Depreciación',
                                      null=True,
                                      blank=True)
     fecha_baja = models.DateField('Fecha Baja', null=True, blank=True)
+    vida_util_compra = models.BooleanField('Vida útil desde la compra',
+                                           default=False)
     valor = models.BigIntegerField('Valor')
     valorResidual = models.BigIntegerField('Valor Residual', default=0)
     cantidad = models.IntegerField('Cantidad', default=1)
@@ -161,6 +173,9 @@ class Activo(models.Model):
     def __str__(self):
         return self.nombre
 
+    def getTipoActivo(self):
+        return dict(Activo.TipoActivo)[self.tipoActivo]
+
     def calculaDepreciacion(self):
         self.__dict__
         self.pre_delete(instance=self)
@@ -168,37 +183,59 @@ class Activo(models.Model):
         "Borra el activo de la tabla de calculo"
         ActivoDepreciacion.objects.filter(activo=self).delete()
         # Periodo Inicio (aaaa-mm)
+        if self.vida_util_compra:
+            fecIni = self.fecha_ingreso
+        else:
+            fecIni = self.fecha_inicio
+
         periodoIni = dateToPeriodo(
-            self.fecha_inicio if self.fecha_inicio > self.planta.
-            fecha_depreciacion else self.planta.fecha_depreciacion)
+            fecIni if fecIni > self.planta.fecha_depreciacion else self.planta.
+            fecha_depreciacion)
         # OLD yearIni = self.fecha_inicio.year if self.fecha_inicio.year > self.planta.fecha_depreciacion.year else self.planta.fecha_depreciacion.year
         # OLD yearFin = self.planta.fecha_termino.year
         "Duración Planta en meses"
-        periodoFin = dateToPeriodo(self.planta.fecha_termino)
-        duracionPlanta = diff_meses(periodoIni, periodoFin)
+        if self.vida_util_compra:
+            duracionPlanta = diff_meses(fecIni, self.planta.fecha_termino)
+            periodoFin = periodoIni + relativedelta(months=duracionPlanta)
+        else:
+            periodoFin = dateToPeriodo(self.planta.fecha_termino)
+            duracionPlanta = diff_meses(periodoIni, periodoFin)
 
         "Duración Activo en meses"
-        duracionActivo = self.duracion_maxima * 12
+        if self.duracion_clase == 'C':
+            duracionActivo = duracionPlanta
+        elif self.duracion_clase == 'C24':
+            duracionActivo = duracionPlanta + 24
+        elif self.duracion_clase == 'T':
+            duracionActivo = self.duracion_maxima  # * 12 -- Se dejó de usar años
+        else:
+            duracionActivo = 0
 
         "Depreciación mensual"
         valorContable = self.valor
-        valorDep = (valorContable - self.valorResidual) / duracionActivo
+        valorDep = int(
+            round((valorContable - self.valorResidual) / duracionActivo))
 
         "Baja Activo"
         periodoBaja = dateToPeriodo(self.fecha_baja)
         if periodoBaja == None:
             periodoBaja = periodoFin
+        periodoBaja += relativedelta(months=1)
 
         "Recalcula depreciación por año hasta duración máxima, termino de la planta o baja del activo"
         if duracionActivo > 0 and self.planta.activa:
             i = 0
-            while i < duracionPlanta and i < duracionActivo and periodoIni <= periodoBaja and valorContable > 0:
+            pond = (1 if valorContable >= 0 else -1)
+            while i < duracionPlanta and i < duracionActivo and periodoIni <= periodoBaja and valorContable * pond > 0:
                 valorContable -= valorDep
+                if valorContable * pond < 0:
+                    valorContable = 0
                 actDep = ActivoDepreciacion(activo=self,
                                             planta=self.planta,
                                             periodo=periodoIni,
                                             valor_contable=valorContable,
-                                            valor_depreciacion=valorDep)
+                                            valor_depreciacion=valorDep,
+                                            duracion_real=duracionActivo)
                 actDep.save()
                 i += 1
                 periodoIni = periodoIni + relativedelta(months=1)
@@ -285,6 +322,7 @@ class ActivoDepreciacion(models.Model):
     periodo = models.DateField('Periodo', blank=False, null=False)
     valor_depreciacion = models.BigIntegerField('Valor Depreciación')
     valor_contable = models.BigIntegerField('Valor Contable', default=0)
+    duracion_real = models.IntegerField('Duración Real', default=0)
 
     class Meta:
         unique_together = [['activo', 'planta', 'periodo']]
