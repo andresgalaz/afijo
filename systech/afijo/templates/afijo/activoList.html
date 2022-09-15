@@ -67,7 +67,8 @@
                 <td align="middle">{{ activo.fecha_ingreso|date:'d/m/Y' }}</td>
                 <td align="middle">{{ activo.fecha_inicio|date:'d/m/Y' }}</td>
                 <td align="middle">{{ activo.fecha_termino|date:'d/m/Y' }}</td>
-                <td align="middle">{% widthratio activo.duracion_maxima 1 12%}</td>
+                <!-- <td align="middle">{% widthratio activo.duracion_maxima 1 12%}</td> -->
+                <td align="middle">{{ activo.duracion_maxima }}</td>
                 <td align="right">{{ activo.valor }}</td>
             </tr>
         {% endfor %}

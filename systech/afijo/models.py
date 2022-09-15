@@ -179,7 +179,6 @@ class Activo(models.Model):
     def calculaDepreciacion(self):
         self.__dict__
         self.pre_delete(instance=self)
-
         "Borra el activo de la tabla de calculo"
         ActivoDepreciacion.objects.filter(activo=self).delete()
         # Periodo Inicio (aaaa-mm)
@@ -191,8 +190,6 @@ class Activo(models.Model):
         periodoIni = dateToPeriodo(
             fecIni if fecIni > self.planta.fecha_depreciacion else self.planta.
             fecha_depreciacion)
-        # OLD yearIni = self.fecha_inicio.year if self.fecha_inicio.year > self.planta.fecha_depreciacion.year else self.planta.fecha_depreciacion.year
-        # OLD yearFin = self.planta.fecha_termino.year
         "Duración Planta en meses"
         if self.vida_util_compra:
             duracionPlanta = diff_meses(fecIni, self.planta.fecha_termino)
@@ -200,7 +197,6 @@ class Activo(models.Model):
         else:
             periodoFin = dateToPeriodo(self.planta.fecha_termino)
             duracionPlanta = diff_meses(periodoIni, periodoFin)
-
         "Duración Activo en meses"
         if self.duracion_clase == 'C':
             duracionActivo = duracionPlanta
@@ -210,18 +206,17 @@ class Activo(models.Model):
             duracionActivo = self.duracion_maxima  # * 12 -- Se dejó de usar años
         else:
             duracionActivo = 0
-
+        print('Duración planta:', duracionPlanta)
+        print('Duración activo:', duracionActivo)
         "Depreciación mensual"
         valorContable = self.valor
         valorDep = int(
             round((valorContable - self.valorResidual) / duracionActivo))
-
         "Baja Activo"
         periodoBaja = dateToPeriodo(self.fecha_baja)
         if periodoBaja == None:
             periodoBaja = periodoFin
         periodoBaja += relativedelta(months=1)
-
         "Recalcula depreciación por año hasta duración máxima, termino de la planta o baja del activo"
         if duracionActivo > 0 and self.planta.activa:
             i = 0
@@ -240,7 +235,34 @@ class Activo(models.Model):
                 i += 1
                 periodoIni = periodoIni + relativedelta(months=1)
 
+    def calculaDuracion(self):
+        pass
+
     def pre_save(sender, instance, **kwargs):
+        if instance.vida_util_compra:
+            fecIni = instance.fecha_ingreso
+        else:
+            fecIni = instance.fecha_inicio
+        periodoIni = dateToPeriodo(
+            fecIni if fecIni > instance.planta.fecha_depreciacion else instance
+            .planta.fecha_depreciacion)
+        "Duración Planta en meses"
+        if instance.vida_util_compra:
+            duracionPlanta = diff_meses(fecIni, instance.planta.fecha_termino)
+            periodoFin = periodoIni + relativedelta(months=duracionPlanta)
+        else:
+            periodoFin = dateToPeriodo(instance.planta.fecha_termino)
+            duracionPlanta = diff_meses(periodoIni, periodoFin)
+        if instance.duracion_clase == 'C':
+            duracionActivo = duracionPlanta
+        elif instance.duracion_clase == 'C24':
+            duracionActivo = duracionPlanta + 24
+        elif instance.duracion_clase == 'T':
+            duracionActivo = instance.duracion_maxima  # * 12 -- Se dejó de usar años
+        else:
+            duracionActivo = 0
+        print('Duración planta:', duracionPlanta)
+        print('Duración activo:', duracionActivo)
         try:
             instance.codigo_interno = "-".join([
                 instance.planta.nombre[-4:3],
@@ -255,9 +277,11 @@ class Activo(models.Model):
         if instance.fecha_inicio is None:
             instance.fecha_inicio = instance.planta.fecha_depreciacion
         "Actualiza fecha de término si es nula"
-        if not instance.fecha_inicio is None and instance.fecha_termino is None:
-            instance.fecha_termino = instance.fecha_inicio + \
-                relativedelta(years=instance.duracion_maxima)
+        if not instance.fecha_inicio is None:  # and instance.fecha_termino is None:
+            print("Fecha inicio:", instance.fecha_inicio,
+                  relativedelta(months=instance.duracion_maxima))
+            instance.fecha_termino = instance.fecha_inicio + relativedelta(
+                months=instance.duracion_maxima)
 
     def post_save(sender, instance, **kwargs):
         instance.calculaDepreciacion()

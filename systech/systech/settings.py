@@ -1,6 +1,6 @@
 import os
 
-ALLOWED_HOSTS = ['localhost', 'afijo.systechchile.cl', 'afijo.compustrom.com']
+ALLOWED_HOSTS = ['localhost', 'afijo.systechchile.cl', 'afijo.compustrom.com','fa33-167-250-55-102.sa.ngrok.io']
 
 DATABASES = {
     'default': {
