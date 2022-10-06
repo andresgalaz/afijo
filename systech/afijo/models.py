@@ -197,6 +197,8 @@ class Activo(models.Model):
         else:
             periodoFin = dateToPeriodo(self.planta.fecha_termino)
             duracionPlanta = diff_meses(periodoIni, periodoFin)
+        if duracionPlanta <= 0:
+            duracionPlanta = 1
         "Duración Activo en meses"
         if self.duracion_clase == 'C':
             duracionActivo = duracionPlanta
@@ -206,8 +208,6 @@ class Activo(models.Model):
             duracionActivo = self.duracion_maxima  # * 12 -- Se dejó de usar años
         else:
             duracionActivo = 0
-        print('Duración planta:', duracionPlanta)
-        print('Duración activo:', duracionActivo)
         "Depreciación mensual"
         valorContable = self.valor
         valorDep = int(
@@ -261,8 +261,6 @@ class Activo(models.Model):
             duracionActivo = instance.duracion_maxima  # * 12 -- Se dejó de usar años
         else:
             duracionActivo = 0
-        print('Duración planta:', duracionPlanta)
-        print('Duración activo:', duracionActivo)
         try:
             instance.codigo_interno = "-".join([
                 instance.planta.nombre[-4:3],
@@ -278,8 +276,6 @@ class Activo(models.Model):
             instance.fecha_inicio = instance.planta.fecha_depreciacion
         "Actualiza fecha de término si es nula"
         if not instance.fecha_inicio is None:  # and instance.fecha_termino is None:
-            print("Fecha inicio:", instance.fecha_inicio,
-                  relativedelta(months=instance.duracion_maxima))
             instance.fecha_termino = instance.fecha_inicio + relativedelta(
                 months=instance.duracion_maxima)
 

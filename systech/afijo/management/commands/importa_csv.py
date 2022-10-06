@@ -26,6 +26,7 @@ LISTA_TIPO_ACTIVO = [
     ('M', 'MAQUINARIAS Y EQUIPOS'),
     ('M', 'MAQUINARIA Y EQUIPO'),
     ('M', 'MAQUINARIA Y EQUIPOS'),
+    ('M', 'MAQUINARIA Y EQ'),
     ('M', 'MAQ Y EQ'),
     ('U', 'MUEBLES Y UTILES'),
     ('U', 'MUEBLE Y UTILES'),
@@ -103,7 +104,8 @@ class Command(BaseCommand):
                 nLinea = 0
                 for row in data:  # data[1:]:
                     nLinea += 1
-                    if isRowEmpty(row): continue
+                    if isRowEmpty(row):
+                        continue
 
                     csvPlanta = row[0]
                     csvTipoActivo = row[1].strip().upper()
@@ -151,7 +153,8 @@ class Command(BaseCommand):
                         continue
                     tipoActivo = tipoActivo[0][0]
 
-                    if csvNombreActivo == '': csvNombreActivo = csvProveedor
+                    if csvNombreActivo == '':
+                        csvNombreActivo = csvProveedor
                     if csvNombreActivo == '':
                         nError += 1
                         print(nLinea, 'No hay nombre de activo', row)
