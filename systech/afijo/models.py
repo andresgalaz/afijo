@@ -73,7 +73,8 @@ class Planta(models.Model):
 
         if not planta_prev is None and (
                 planta_prev.fecha_depreciacion != instance.fecha_depreciacion
-                or planta_prev.fecha_termino != instance.fecha_termino):
+                or planta_prev.fecha_termino != instance.fecha_termino
+                or planta_prev.activa != instance.activa):
             "Si hay cambios en la fecha de Inicio o Fin se recalculan todos los activos"
             for act in Activo.objects.filter(planta=planta_prev):
                 act.planta = instance
