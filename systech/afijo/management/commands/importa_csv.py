@@ -35,6 +35,25 @@ LISTA_TIPO_ACTIVO = [
     ('U', 'VEHICULOS'),
 ]
 
+LISTA_PLANTA = [
+    ('AB1507', 'ARICA AB'),
+    ('B1508', 'ARICA B'),
+    ('B0800', 'BIO BIO'),
+    ('AB0541', 'CASABLANCA'),
+    ('AB0728', 'CONSTITUCIÓN'),
+    ('AB0726', 'CURICÓ'),
+    ('HQ1300', 'HQ'),
+    ('AB1308', 'LAMPA'),
+    ('LA1300', 'LATAM'),
+    ('AB0801', 'LOS ANGELES'),
+    ('AB1307', 'MELIPILLA'),
+    ('AB0727', 'PARRAL'),
+    ('AB0610', 'RANCAGUA'),
+    ('AB0301', 'SPP'),
+    ('AB0611', 'SVTTS'),
+    ('B0542', 'VIÑA DEL MAR'),
+]
+
 
 def str2date(cFecha):
     try:
@@ -107,26 +126,36 @@ class Command(BaseCommand):
                     if isRowEmpty(row):
                         continue
 
-                    csvPlanta = row[0]
+                    # 0 Cuenta contable
                     csvTipoActivo = row[1].strip().upper()
-                    csvCorrelativo = row[2]
-                    csvFacturaFisica = row[3]
-                    csvNombreActivo = row[4].strip()
-                    csvProveedor = row[5]
-                    csvNumeroFactura = row[6]
-                    # 7 Nombre localidad de la planta, no se utiliza
-                    csvUbicacion = row[8]
-                    # 9 Ubicación en planta no se usa
-                    csvFechaCompra = row[10].strip()
-                    # 11 Fecha Concesión, se usa la de la planta
-                    # 12 Fecha termino Concesion, se usa la de la planta
-                    # 13 Fecha comienzo Operaciones, se usa la de la planta
-                    csvVidaUtilCompra = row[14]
-                    # 15 Vida util desde Consesion se calcula
-                    csvClaseDuracion = row[16].strip()
-                    # 17 N+24 se calcula
-                    csvVidaUtil = row[18].strip()
-                    csvValor = row[19]
+                    csvNombreActivo = row[2].strip()
+                    csvProveedor = row[3]
+                    csvNumeroFactura = row[4]
+                    csvPlanta = row[5].strip().upper()
+                    csvUbicacion = row[6]
+                    csvFechaCompra = row[7].strip()
+                    #  8 Año compra está en el campor anterior
+                    #  9 Fecha Concesión, se usa la de la planta
+                    # 10 Fecha termino Concesion, se usa la de la planta
+                    csvVidaUtilConcesion = row[11]
+                    # 12 Fecha comienzo Operaciones, se usa la de la planta
+                    csvFechaIniDeprec = row[13].strip()
+                    # 14 Año inicio depreciación está en el campor anterior
+                    # 15 Fecha especial de inicio, según fecha de compra
+                    # 16 Año especial de inicio, depende del campo anterior
+                    # 17 Efectivida de inicio de depreciación: si o no
+                    # 18 Año inicio depreciación definitiva, está en el siguiente campo
+                    # 19 Fecha inicio depreciación definitiva, se cálcula
+                    # 20 Fecha término depreciación, se cálcula
+                    csvValor = row[21]
+                    # 22 Vida util proyecto
+                    # 23 Vida util restante
+
+                    # Versión anterior
+                    # csvCorrelativo = row[2]
+                    # csvFacturaFisica = row[3]
+                    # csvClaseDuracion = row[16].strip()
+                    # csvVidaUtil = row[18].strip()
 
                     idPlanta = str2number(csvPlanta)
                     if idPlanta == None:
