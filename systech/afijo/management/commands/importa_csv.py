@@ -137,19 +137,20 @@ class Command(BaseCommand):
                     #  8 Año compra está en el campor anterior
                     #  9 Fecha Concesión, se usa la de la planta
                     # 10 Fecha termino Concesion, se usa la de la planta
-                    csvVidaUtilConcesion = row[11]
+                    # 11 Vida Util Concesion, se usa la de la planta
                     # 12 Fecha comienzo Operaciones, se usa la de la planta
-                    csvFechaIniDeprec = row[13].strip()
-                    # 14 Año inicio depreciación está en el campor anterior
-                    # 15 Fecha especial de inicio, según fecha de compra
-                    # 16 Año especial de inicio, depende del campo anterior
-                    # 17 Efectivida de inicio de depreciación: si o no
-                    # 18 Año inicio depreciación definitiva, está en el siguiente campo
-                    # 19 Fecha inicio depreciación definitiva, se cálcula
-                    # 20 Fecha término depreciación, se cálcula
-                    csvValor = row[21]
-                    # 22 Vida util proyecto
-                    # 23 Vida util restante
+                    # 13 F. especial de inicio (Según fecha de compra)
+                    # 14 Año inicio de depreciacion especial
+                    # 15 Efectivida de inicio de depreciación
+                    # 16 Año inicio de depreciacion definitivo
+                    # 17 Fecha de depreciacion definitiva
+                    # 18 Fecha Término Depreciación
+                    csvValor = row[19]
+                    # 20 Total Meses Amortización - Vida Util Proyecto (Meses), se calcula de la Planta
+                    #       ( planta.fecha_termino + 24 ) - planta.fecha_depreciacion
+                    # 21 Vida util Restante(Meses)
+                    # 22 - 30: años 2015 - 2023
+                    # 31 Amort. Mensual - Usar para verificar cálculo
 
                     # Versión anterior
                     # csvCorrelativo = row[2]
@@ -157,18 +158,23 @@ class Command(BaseCommand):
                     # csvClaseDuracion = row[16].strip()
                     # csvVidaUtil = row[18].strip()
 
-                    idPlanta = str2number(csvPlanta)
-                    if idPlanta == None:
+                    idPlanta = [
+                        item for item in LISTA_PLANTA if item[1] == csvPlanta
+                    ]
+                    if len(idPlanta) == 0:
                         nError += 1
                         print(nLinea,
-                              'Id de planta debe ser numérico:' + csvPlanta,
+                              'No existe planta en la lista:' + csvTipoActivo,
                               row)
                         continue
+                    idPlanta = idPlanta[0][0]
 
                     planta = Planta.objects.all().get(id=idPlanta)
                     if not planta:
                         nError += 1
-                        print(nLinea, 'No existe planta:' + str(idPlanta), row)
+                        print(nLinea,
+                              'No existe planta en la tabla:' + str(idPlanta),
+                              row)
                         continue
 
                     tipoActivo = [

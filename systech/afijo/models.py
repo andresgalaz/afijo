@@ -54,7 +54,7 @@ class Planta(models.Model):
     fecha_depreciacion = models.DateField('Fecha Inicio Depreciación')
     fecha_inicio = models.DateField('Fecha Inicio Concesión')
     fecha_termino = models.DateField('Fecha Término Concesión')
-    duracion_concesion = models.IntegerField('Duración de la Concesión')
+    duracion_concesion = models.IntegerField('Vida Útil Proyecto')
     activa = models.BooleanField('Depreciación Activa', default=True)
 
     #sobre_termino = models.IntegerField('Sobre tiempo depreciación', default=0)
@@ -65,7 +65,7 @@ class Planta(models.Model):
     def pre_save(sender, instance, **kwargs):
         timeDif = relativedelta(instance.fecha_termino, instance.fecha_inicio)
         if not timeDif is None:
-            instance.duracion_concesion = timeDif.years
+            instance.duracion_concesion = timeDif.years * 12 + timeDif.months
         try:
             planta_prev = Planta.objects.get(id=instance.id)
         except ObjectDoesNotExist:
@@ -73,7 +73,8 @@ class Planta(models.Model):
 
         if not planta_prev is None and (
                 planta_prev.fecha_depreciacion != instance.fecha_depreciacion
-                or planta_prev.fecha_termino != instance.fecha_termino
+                or planta_prev.fecha_termino != instance.fecha_termino or
+                planta_prev.duracion_concesion != instance.duracion_concesion
                 or planta_prev.activa != instance.activa):
             "Si hay cambios en la fecha de Inicio o Fin se recalculan todos los activos"
             for act in Activo.objects.filter(planta=planta_prev):
