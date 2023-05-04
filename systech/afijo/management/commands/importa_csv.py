@@ -12,6 +12,7 @@ from django.utils import timezone
 from django.db.utils import DataError
 from django.db import transaction
 from afijo.models import Estado, Planta, Activo, TipoDepreciacion
+from afijo.util import diff_meses
 
 LISTA_TIPO_ACTIVO = [
     ('A', 'ACONDICIONAMIENTO'),
@@ -32,6 +33,7 @@ LISTA_TIPO_ACTIVO = [
     ('U', 'MUEBLE Y UTILES'),
     ('O', 'OBRAS EN CURSO'),
     ('A', 'PREOPERATION EXPENSIVES'),
+    ('S', 'SOFTWARE'),
     ('U', 'VEHICULOS'),
 ]
 
@@ -50,7 +52,7 @@ LISTA_PLANTA = [
     ('AB0727', 'PARRAL'),
     ('AB0610', 'RANCAGUA'),
     ('AB0301', 'SPP'),
-    ('AB0611', 'SVTTS'),
+    ('AB0611', 'SVTT'),
     ('B0542', 'VIÑA DEL MAR'),
 ]
 
@@ -107,6 +109,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         start_time = timezone.now()
         file_path = options["file_path"]
+        fechaSinFin = datetime(2099, 1, 1).date()
 
         # Valores de FK por defecto
         tipoDepreciacion = TipoDepreciacion.objects.get(pk=1)
@@ -115,7 +118,8 @@ class Command(BaseCommand):
         nLinea = 0
         nError = 0
 
-        with open(file_path, "r", encoding='cp437') as csv_file:
+        # encoding = 'cp437'
+        with open(file_path, "r", encoding='utf8') as csv_file:
             data = list(csv.reader(csv_file, delimiter=";"))
             # Valida. Si hay errores no procesa nada
             for nPasada in range(2):
@@ -139,15 +143,18 @@ class Command(BaseCommand):
                     # 10 Fecha termino Concesion, se usa la de la planta
                     # 11 Vida Util Concesion, se usa la de la planta
                     # 12 Fecha comienzo Operaciones, se usa la de la planta
-                    # 13 F. especial de inicio (Según fecha de compra)
-                    # 14 Año inicio de depreciacion especial
-                    # 15 Efectivida de inicio de depreciación
-                    # 16 Año inicio de depreciacion definitivo
-                    # 17 Fecha de depreciacion definitiva
-                    # 18 Fecha Término Depreciación
-                    csvValor = row[19]
-                    # 20 Total Meses Amortización - Vida Util Proyecto (Meses), se calcula de la Planta
+                    # 13 F inicio Depreciacion
+                    # 14 Año inicio depreciacion
+                    # 15 F. especial de inicio (Según fecha de compra
+                    # 16 Año inicio de depreciacion especial
+                    # 17 Efectivida de inicio de depreciación
+                    # 18 Año inicio de depreciacion definitivo
+                    # 19 Fecha de depreciacion definitiva
+                    # 20 Fecha Término Depreciación
+                    csvValor = row[21]
+                    # 22 Total Meses Amortización - Vida Util Proyecto (Meses), se calcula de la Planta
                     #       ( planta.fecha_termino + 24 ) - planta.fecha_depreciacion
+                    csvVidaUtilCompra = row[22]
                     # 21 Vida util Restante(Meses)
                     # 22 - 30: años 2015 - 2023
                     # 31 Amort. Mensual - Usar para verificar cálculo
@@ -158,23 +165,26 @@ class Command(BaseCommand):
                     # csvClaseDuracion = row[16].strip()
                     # csvVidaUtil = row[18].strip()
 
-                    idPlanta = [
+                    if csvTipoActivo == '' and csvNombreActivo == '' and csvProveedor == '' and csvNumeroFactura == '' and csvPlanta == '':
+                        continue
+
+                    nombrePlanta = [
                         item for item in LISTA_PLANTA if item[1] == csvPlanta
                     ]
-                    if len(idPlanta) == 0:
+                    if len(nombrePlanta) == 0:
                         nError += 1
                         print(nLinea,
                               'No existe planta en la lista:' + csvTipoActivo,
                               row)
                         continue
-                    idPlanta = idPlanta[0][0]
+                    nombrePlanta = nombrePlanta[0][0]
 
-                    planta = Planta.objects.all().get(id=idPlanta)
+                    planta = Planta.objects.all().get(nombre=nombrePlanta)
                     if not planta:
                         nError += 1
-                        print(nLinea,
-                              'No existe planta en la tabla:' + str(idPlanta),
-                              row)
+                        print(
+                            nLinea, 'No existe planta en la tabla:' +
+                            str(nombrePlanta), row)
                         continue
 
                     tipoActivo = [
@@ -206,50 +216,50 @@ class Command(BaseCommand):
                               row)
                         continue
 
-                    if csvVidaUtilCompra == '':
-                        vidaUtilCompra = False
-                    else:
-                        vidaUtilCompra = str2boolean(csvVidaUtilCompra)
-                        if vidaUtilCompra == None:
-                            nError += 1
-                            print(
-                                nLinea,
-                                'Vida útil desde la compra debe ser booleano:'
-                                + csvVidaUtilCompra, row)
-                            continue
+                    # if csvVidaUtilCompra == '':
+                    #     vidaUtilCompra = False
+                    # else:
+                    #     vidaUtilCompra = str2boolean(csvVidaUtilCompra)
+                    #     if vidaUtilCompra == None:
+                    #         nError += 1
+                    #         print(
+                    #             nLinea,
+                    #             'Vida útil desde la compra debe ser booleano:'
+                    #             + csvVidaUtilCompra, row)
+                    #         continue
 
-                    claseDuracion = [
-                        item for item in Activo.ClaseDuracion
-                        if item[0] == csvClaseDuracion
-                    ]
-                    if len(claseDuracion) == 0:
-                        nError += 1
-                        print(
-                            nLinea,
-                            'No existe clase de duración:' + csvClaseDuracion,
-                            row)
-                        continue
-                    claseDuracion = claseDuracion[0][0]
+                    # claseDuracion = [
+                    #     item for item in Activo.ClaseDuracion
+                    #     if item[0] == csvClaseDuracion
+                    # ]
+                    # if len(claseDuracion) == 0:
+                    #     nError += 1
+                    #     print(
+                    #         nLinea,
+                    #         'No existe clase de duración:' + csvClaseDuracion,
+                    #         row)
+                    #     continue
+                    # claseDuracion = claseDuracion[0][0]
 
-                    if csvClaseDuracion == '':
-                        nError += 1
-                        print(
-                            nLinea,
-                            'Vida útil desde la compra debe ser booleano:' +
-                            csvVidaUtilCompra, row)
-                        continue
+                    # if csvClaseDuracion == '':
+                    #     nError += 1
+                    #     print(
+                    #         nLinea,
+                    #         'Vida útil desde la compra debe ser booleano:' +
+                    #         csvVidaUtilCompra, row)
+                    #     continue
 
-                    if csvVidaUtil == '':
-                        vidaUtil = -1
-                    else:
-                        vidaUtil = str2number(csvVidaUtil)
-                        if vidaUtil == None:
-                            nError += 1
-                            print(nLinea,
-                                  'Vida útil debe ser numérico:' + csvVidaUtil,
-                                  row)
-                            continue
-                        vidaUtil = int(vidaUtil)
+                    # if csvVidaUtil == '':
+                    #     vidaUtil = -1
+                    # else:
+                    #     vidaUtil = str2number(csvVidaUtil)
+                    #     if vidaUtil == None:
+                    #         nError += 1
+                    #         print(nLinea,
+                    #               'Vida útil debe ser numérico:' + csvVidaUtil,
+                    #               row)
+                    #         continue
+                    #     vidaUtil = int(vidaUtil)
 
                     valor = str2number(csvValor)
                     if valor == None:
@@ -260,13 +270,50 @@ class Command(BaseCommand):
                         continue
                     valor = int(valor)
 
+                    csvVidaUtilCompra = str2number(csvVidaUtilCompra)
+                    if planta.fecha_depreciacion >= fechaIngreso:
+                        vidaUtilCompra = diff_meses(planta.fecha_depreciacion,
+                                                    planta.fecha_termino) + 24
+                    elif planta.fecha_termino >= fechaSinFin:
+                        vidaUtilCompra = csvVidaUtilCompra
+                    else:
+                        vidaUtilCompra = diff_meses(fechaIngreso,
+                                                    planta.fecha_termino) + 24
+                        if fechaIngreso.day > planta.fecha_termino.day and not (
+                                fechaIngreso.month
+                                == planta.fecha_termino.month
+                                and fechaIngreso.year
+                                == planta.fecha_termino.year):
+                            vidaUtilCompra += 1
+                    # Verfiicación fechas
+                    if (vidaUtilCompra != csvVidaUtilCompra):
+                        nError += 1
+                        print(nLinea, 'No coincide la vida util:',
+                              vidaUtilCompra, csvVidaUtilCompra, row)
+
+                        # if planta.fecha_depreciacion >= fechaIngreso:
+                        #     print('Fec.Depr.Planta:',
+                        #           planta.fecha_depreciacion,
+                        #           planta.fecha_termino)
+                        # elif planta.fecha_termino >= fechaSinFin:
+                        #     print('Fec.Depr.SinFin:')
+                        # else:
+                        #     print('Fec.Depr.Compra:', fechaIngreso,
+                        #           planta.fecha_termino,
+                        #           fechaIngreso.day > planta.fecha_termino.day)
+                        # print(planta, nLinea, vidaUtilCompra,
+                        #       csvVidaUtilCompra)
+
+                    if nLinea % 100 == 0:
+                        print('Procesando [', nPasada, ']:', nLinea)
                     if nPasada == 0:
                         continue
 
+                    csvCorrelativo = None
+                    csvFacturaFisica = None
                     # Si es la pasada 1, ya está validado y no hay errores, asi es que se procesa
                     try:
-                        print('Procesando línea:', nLinea)
-                        Activo.objects.create(
+                        activoSaved = Activo.objects.create(
                             tipoDepreciacion=tipoDepreciacion,
                             tipoActivo=tipoActivo,
                             nombre=csvNombreActivo,
@@ -278,11 +325,12 @@ class Command(BaseCommand):
                             numero_factura=csvNumeroFactura,
                             fecha_ingreso=fechaIngreso,
                             duracion_maxima=vidaUtil,
-                            duracion_clase=claseDuracion,
+                            # duracion_clase=claseDuracion,
                             vida_util_compra=vidaUtilCompra,
                             valor=valor,
                             cantidad=1,
                             estado=estado)
+                        print('activo:', activoSaved)
                     except DataError as e:
                         transaction.set_rollback(True)
                         print(nLinea, 'Error SQL:', tipoDepreciacion,
