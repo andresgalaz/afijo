@@ -6,12 +6,13 @@ __version__ = "v1.0"
 
 import csv
 import re
+# import uuid
 from datetime import datetime
 from django.core.management import BaseCommand
 from django.utils import timezone
 from django.db.utils import DataError
 from django.db import transaction
-from afijo.models import Estado, Planta, Activo, TipoDepreciacion
+from afijo.models import Estado, Planta, Activo, ActivoDepreciacion, TipoDepreciacion
 from afijo.util import diff_meses
 
 LISTA_TIPO_ACTIVO = [
@@ -122,7 +123,7 @@ class Command(BaseCommand):
         with open(file_path, "r", encoding='utf8') as csv_file:
             data = list(csv.reader(csv_file, delimiter=";"))
             # Valida. Si hay errores no procesa nada
-            for nPasada in range(2):
+            for nPasada in range(1, 2, 1):
                 print('Pasada:', nPasada)
                 nLinea = 0
                 for row in data:  # data[1:]:
@@ -309,11 +310,11 @@ class Command(BaseCommand):
                     if nPasada == 0:
                         continue
 
-                    csvCorrelativo = None
+                    csvCorrelativo = str(nLinea)
                     csvFacturaFisica = None
                     # Si es la pasada 1, ya está validado y no hay errores, asi es que se procesa
                     try:
-                        activoSaved = Activo.objects.create(
+                        Activo.objects.create(
                             tipoDepreciacion=tipoDepreciacion,
                             tipoActivo=tipoActivo,
                             nombre=csvNombreActivo,
@@ -324,20 +325,16 @@ class Command(BaseCommand):
                             proveedor=csvProveedor,
                             numero_factura=csvNumeroFactura,
                             fecha_ingreso=fechaIngreso,
-                            duracion_maxima=vidaUtil,
+                            duracion_maxima=vidaUtilCompra,
                             # duracion_clase=claseDuracion,
-                            vida_util_compra=vidaUtilCompra,
+                            vida_util_compra=True,
                             valor=valor,
                             cantidad=1,
                             estado=estado)
-                        print('activo:', activoSaved)
+
                     except DataError as e:
                         transaction.set_rollback(True)
-                        print(nLinea, 'Error SQL:', tipoDepreciacion,
-                              tipoActivo, csvNombreActivo, csvCorrelativo,
-                              csvUbicacion, csvFacturaFisica, csvProveedor,
-                              csvNumeroFactura, fechaIngreso, vidaUtil, valor,
-                              estado, e)
+                        print(nLinea, 'Error SQL:', e, row)
                         exit(-1)
 
                 if nError > 0:

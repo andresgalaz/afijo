@@ -113,7 +113,7 @@ class Activo(models.Model):
     tipoDepreciacion = models.ForeignKey(TipoDepreciacion,
                                          default=1,
                                          on_delete=models.CASCADE)
-    nombre = models.CharField('Nombre', max_length=200)
+    nombre = models.CharField('Nombre', max_length=250)
     modelo = models.CharField('Modelo', max_length=80, null=True, blank=True)
     planta = models.ForeignKey(Planta, models.SET_NULL, blank=True, null=True)
     linea = models.CharField('Línea', max_length=2,
@@ -142,7 +142,7 @@ class Activo(models.Model):
                                       blank=True,
                                       null=True)
     proveedor = models.CharField('Factura Física',
-                                 max_length=100,
+                                 max_length=250,
                                  blank=True,
                                  null=True)
     numero_factura = models.CharField('Factura Física',
