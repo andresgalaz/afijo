@@ -5,7 +5,7 @@ from django.urls import include, path
 from afijo.views import HomeView, PlantaList, PlantaDetail, PlantaDepreciacion \
                       , PlantaDepreciacionAnual, PlantaDepreciacionMensual
 from afijo.activoView import ActivoListView
-from afijo.depreciacionView import DepreciacionListView
+from afijo.depreciacionView import DepreciacionListView, DepreciacionAcumView
 from afijo.forms import PlantaForm
 
 app_name = 'afijo'
@@ -17,6 +17,12 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('activoList', ActivoListView.as_view(), name='activoList'),
     path('activoListCsv', ActivoListView.toCSV, name='activoListCsv'),
+    path('depreciacionAcum',
+         DepreciacionAcumView.as_view(),
+         name='depreciacionAcum'),
+    path('depreciacionAcumCsv',
+         DepreciacionAcumView.toCSV,
+         name='depreciacionAcumCsv'),
     path('depreciacionList',
          DepreciacionListView.as_view(),
          name='depreciacionList'),
