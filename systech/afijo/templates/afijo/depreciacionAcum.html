@@ -40,34 +40,60 @@
     <thead>
       <tr>
         <!-- <th scope='col'>#</th> -->
+        <th scope="col">Rubro</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Proveedor</th>
+        <th scope="col">Factura</th>
         <th scope="col">Planta ID</th>
         <th scope="col">Planta Nombre</th>
-        <th scope="col">Tipo</th>
-        <th scope="col">Nombre</th>
-        <th scope="col" style="text-align: center">Fecha Ingreso</th>
-        <th scope="col" style="text-align: center">Fecha Inicio</th>
-        <th scope="col" style="text-align: center">Fecha Termino</th>
-        <th scope="col" style="text-align: center">Vida Útil</th>
+        <th scope="col" style="text-align: center">Fecha Compra</th>
+        <th scope="col" style="text-align: center">Fecha Adj. Concesión</th>
+        <th scope="col" style="text-align: center">Fecha Dep. Definitiva</th>
+        <th scope="col" style="text-align: center">Fecha Termino Dep.</th>
         <th scope="col" style="text-align: right">Valor de Origen</th>
-        <th scope="col" style="text-align: right">Valor Contable</th>
-        <th scope="col" style="text-align: right">Depreciación Mes</th>
+        <th scope="col" style="text-align: center">Vida Útil Proy.</th>
+        <th scope="col" style="text-align: right">Amortización Mensual</th>
+        <th scope="col" style="text-align: right">Dep. Periodo</th>
+        <th scope="col" style="text-align: right">Neto</th>
       </tr>
     </thead>
     <tbody>
       {% for depmes in depreciacion_list %}
       <tr>
         <!-- <th scope="row">{{ page_obj.start_index | add:forloop.counter0 }}</th> -->
+        <td>
+          {% if depmes.activo__tipoActivo == 'A' %} Acondicionamiento
+          <!-- -->
+          {% elif depmes.activo__tipoActivo == 'E' %} Edificio
+          <!-- -->
+          {% elif depmes.activo__tipoActivo == 'O' %} Obras en curso
+          <!-- -->
+          {% elif depmes.activo__tipoActivo == 'M' %} Maquinaria
+          <!-- -->
+          {% elif depmes.activo__tipoActivo == 'C' %} Equipos de computación
+          <!-- -->
+          {% elif depmes.activo__tipoActivo == 'S' %} Software
+          <!-- -->
+          {% elif depmes.activo__tipoActivo == 'U' %} Muebles y Utiles
+          <!-- -->
+          {% else %} No definido
+          <!-- -->
+          {% endif %}
+        </td>
+        <td>{{ depmes.activo__nombre }}</td>
+        <td>{{ depmes.activo__proveedor }}</td>
+        <td>{{ depmes.activo__numero_factura }}</td>
         <td>{{ depmes.planta__nombre }}</td>
         <td>{{ depmes.planta__ubicacion }}</td>
-        <td>{{ depmes.activo__tipoActivo }}</td>
-        <td>{{ depmes.activo__nombre }}</td>
         <td align="middle">{{ depmes.activo__fecha_ingreso|date:'d/m/Y' }}</td>
+        <td align="middle">{{ depmes.planta__fecha_inicio|date:'d/m/Y' }}</td>
         <td align="middle">{{ depmes.planta__fecha_depreciacion|date:'d/m/Y' }}</td>
         <td align="middle">{{ depmes.planta__fecha_termino|date:'d/m/Y' }}</td>
-        <td align="middle">{{ depmes.duracion_real }}</td>
         <td align="right">{{ depmes.activo__valor }}</td>
+        <td align="middle">{{ depmes.duracion_real }}</td>
+        <td align="right">{{ depmes.valor_depreciacion_min }}</td>
+        <td align="right">{{ depmes.dep_acum }}</td>
         <td align="right">{{ depmes.valor_contable }}</td>
-        <td align="right">{{ depmes.valor_depreciacion }}</td>
       </tr>
       {% endfor %}
     </tbody>
