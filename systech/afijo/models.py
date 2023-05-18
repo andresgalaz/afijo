@@ -223,7 +223,11 @@ class Activo(models.Model):
         if duracionActivo > 0 and self.planta.activa:
             i = 0
             pond = (1 if valorContable >= 0 else -1)
+            acumTotal = 0
+            acumAnual = 0
             while i < duracionPlanta and i < duracionActivo and periodoIni <= periodoBaja and valorContable * pond > 0:
+                acumTotal += valorDep
+                acumAnual += valorDep
                 valorContable -= valorDep
                 if valorContable * pond < 0:
                     valorContable = 0
@@ -232,10 +236,14 @@ class Activo(models.Model):
                                             periodo=periodoIni,
                                             valor_contable=valorContable,
                                             valor_depreciacion=valorDep,
-                                            duracion_real=duracionActivo)
+                                            duracion_real=duracionActivo,
+                                            acum_total=acumTotal,
+                                            acum_anual=acumAnual)
                 actDep.save()
                 i += 1
                 periodoIni = periodoIni + relativedelta(months=1)
+                if periodoIni.month == 1:
+                    acumAnual = 0
 
     def calculaDuracion(self):
         pass
@@ -345,6 +353,8 @@ class ActivoDepreciacion(models.Model):
     valor_depreciacion = models.BigIntegerField('Valor Depreciación')
     valor_contable = models.BigIntegerField('Valor Contable', default=0)
     duracion_real = models.IntegerField('Duración Real', default=0)
+    acum_total = models.BigIntegerField('Acumulado Total')
+    acum_anual = models.BigIntegerField('Acumulado Anual')
 
     class Meta:
         unique_together = [['activo', 'planta', 'periodo']]

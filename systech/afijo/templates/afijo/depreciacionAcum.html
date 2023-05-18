@@ -50,10 +50,11 @@
         <th scope="col" style="text-align: center">Fecha Adj. Concesión</th>
         <th scope="col" style="text-align: center">Fecha Dep. Definitiva</th>
         <th scope="col" style="text-align: center">Fecha Termino Dep.</th>
-        <th scope="col" style="text-align: right">Valor de Origen</th>
         <th scope="col" style="text-align: center">Vida Útil Proy.</th>
-        <th scope="col" style="text-align: right">Amortización Mensual</th>
-        <th scope="col" style="text-align: right">Dep. Periodo</th>
+        <th scope="col" style="text-align: right">Valor Adquisición</th>
+        <th scope="col" style="text-align: right">Depreciación Acumulada</th>
+        <th scope="col" style="text-align: right">Depreciación Ejercicio</th>
+        <th scope="col" style="text-align: right">Total Depreciación</th>
         <th scope="col" style="text-align: right">Neto</th>
       </tr>
     </thead>
@@ -89,11 +90,21 @@
         <td align="middle">{{ depmes.planta__fecha_inicio|date:'d/m/Y' }}</td>
         <td align="middle">{{ depmes.planta__fecha_depreciacion|date:'d/m/Y' }}</td>
         <td align="middle">{{ depmes.planta__fecha_termino|date:'d/m/Y' }}</td>
-        <td align="right">{{ depmes.activo__valor }}</td>
         <td align="middle">{{ depmes.duracion_real }}</td>
-        <td align="right">{{ depmes.valor_depreciacion_min }}</td>
+        <td align="right">{{ depmes.activo__valor }}</td>
         <td align="right">{{ depmes.dep_acum }}</td>
-        <td align="right">{{ depmes.valor_contable }}</td>
+        <td align="right">{{ depmes.acum_anual }}</td>
+        <td align="right">{{ depmes.acum_total}}</td>
+        <td align="right">{{ depmes.neto }}</td>
+        <!--
+(+) Valor de adquisición $ 12.517.950.607 (Costo compra y de ingreso en la base)
+(-) Depreciación Acumulada $ 3.550.771.253 (acumulada al 31-12-2021)
+(-) Depreciación del ejercicio $ 1.485.161.073 (desde Ene a Dic 2022)
+Total Depreciacion $ 5.035.932.326 (suma de las depreciaciones)
+(=) ACTIVOS NETOS $ 7.482.018.281 (Valor de adquisición, menos Total Depreciación).
+
+
+        -->
       </tr>
       {% endfor %}
     </tbody>

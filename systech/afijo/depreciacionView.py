@@ -2,10 +2,11 @@ import logging
 import csv
 
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 from django import forms
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import Sum, Count, Min, Max, F, Q
+from django.db.models import Sum, Count, Min, Max, F, Q, Value, CharField
 from django.db.models.functions import Extract
 from django.db.models.functions.datetime import ExtractMonth, ExtractYear
 from django.db.models.query import QuerySet
@@ -111,25 +112,39 @@ class DepreciacionAcumView(FormMixin, ListView):
         if prmPlanta:
             filters['planta'] = Planta.objects.get(id=int(prmPlanta))
         if prmPeriodo:
-            filters['periodo__lt'] = datetime.strptime(prmPeriodo,
-                                                       '%Y-%m').date()
-            # filters['periodo__month'] = prmPeriodo[-2:]
-            print('querysetWrap v2', prmPeriodo,
-                  datetime.strptime(prmPeriodo, '%Y-%m').date())
+            dPeriodo = datetime.strptime(prmPeriodo, '%Y-%m').date()
+            # filters['periodo__lt'] = dPeriodo + relativedelta(months=1)
+            filters['periodo__lt'] = dPeriodo + relativedelta(months=1)
+            print('querySetWrap periodo__lt', dPeriodo, filters['periodo__lt'])
 
         if len(filters) == 0:
             # Genera una salida vacía, se debe seleccionar planta
             return ActivoDepreciacion.objects.filter(periodo__year=1900)
 
         resp = ActivoDepreciacion.objects.filter(Q(**filters)) \
-            .values('activo__numero_interno','planta__nombre','planta__ubicacion','planta__fecha_inicio','activo__tipoActivo','activo__id','activo__nombre','activo__numero_factura', \
-                    'activo__proveedor','activo__fecha_ingreso','planta__fecha_depreciacion', 'planta__fecha_termino','activo__valor') \
-            .annotate(periodo=Max('periodo'), duracion_real=Min('duracion_real'), \
-                      valor_depreciacion_min=Min('valor_depreciacion'), valor_contable=Min('valor_contable'), \
-                      dep_acum=Sum('valor_depreciacion')) \
-            .order_by('activo__id')
-        print('Count:', len(resp))
-        return resp
+            .values('planta__nombre','planta__ubicacion','planta__fecha_inicio', 'planta__fecha_termino', \
+                    'activo__tipoActivo','activo__id','activo__nombre','activo__numero_factura', \
+                    'activo__proveedor','activo__fecha_ingreso','planta__fecha_depreciacion','activo__valor', \
+                    'valor_depreciacion', 'acum_total', 'acum_anual','duracion_real' \
+                    ) \
+            .annotate( visible=Value('1',output_field=CharField()), \
+                      dep_acum = F('acum_total') - F('acum_anual'), \
+                      neto = F('activo__valor') - F('acum_total'), \
+                      ) \
+            .order_by('activo__id','-periodo')
+
+        # Solo deja el primer registro de cada activo__id
+        i = 0
+        while i < len(resp):
+            activoId = resp[i]['activo__id']
+            i += 1
+            while i < len(resp) and activoId == resp[i]['activo__id']:
+                resp[i]['visible'] = '0'
+                i += 1
+
+        respUniqe = [s for s in resp if s['visible'] == '1']
+        print('respUniqe:', len(respUniqe))
+        return respUniqe
 
     def get_queryset(self):
         print('get_queryset')
@@ -147,6 +162,7 @@ class DepreciacionAcumView(FormMixin, ListView):
 
         writer = csv.writer(response, delimiter=';')
         writer.writerow([
+            'Id.Activo',
             'Rubro',
             'Descripción',
             'Proveedor',
@@ -157,14 +173,16 @@ class DepreciacionAcumView(FormMixin, ListView):
             'Fecha Adj. Concesión',
             'Fecha Dep. Definitiva',
             'Fecha Termino Dep.',
-            'Valor de Origen',
             'Vida Útil Proy.',
-            'Amortización Mensual',
-            'Dep. Periodo',
+            'Valor Adquisición',
+            'Dep. Acumulada',
+            'Dep. Ejercicio',
+            'Dep. Total',
             'Neto',
         ])
         for fila in qrySet:
             writer.writerow([
+                fila['activo__id'],
                 dict(Activo.TipoActivo)[fila['activo__tipoActivo']],
                 fila['activo__nombre'].replace('\n', ' '),
                 fila['activo__proveedor'].replace('\n', ' '),
@@ -175,11 +193,12 @@ class DepreciacionAcumView(FormMixin, ListView):
                 fila['planta__fecha_inicio'],
                 fila['planta__fecha_depreciacion'],
                 fila['planta__fecha_termino'],
-                fila['activo__valor'],
                 fila['duracion_real'],
-                fila['valor_depreciacion_min'],
+                fila['activo__valor'],
                 fila['dep_acum'],
-                fila['valor_contable'],
+                fila['acum_anual'],
+                fila['acum_total'],
+                fila['neto'],
             ])
         return response
 
