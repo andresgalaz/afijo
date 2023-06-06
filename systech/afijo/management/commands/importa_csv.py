@@ -110,6 +110,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         start_time = timezone.now()
         file_path = options["file_path"]
+        fechaSinInicio = datetime(2000, 1, 1).date()
         fechaSinFin = datetime(2099, 1, 1).date()
 
         # Valores de FK por defecto
@@ -123,7 +124,7 @@ class Command(BaseCommand):
         with open(file_path, "r", encoding='utf8') as csv_file:
             data = list(csv.reader(csv_file, delimiter=";"))
             # Valida. Si hay errores no procesa nada
-            for nPasada in range(1, 2, 1):
+            for nPasada in range(0, 2, 1):
                 print('Pasada:', nPasada)
                 nLinea = 0
                 for row in data:  # data[1:]:
@@ -288,9 +289,12 @@ class Command(BaseCommand):
                             vidaUtilCompra += 1
                     # Verfiicación fechas
                     if (vidaUtilCompra != csvVidaUtilCompra):
-                        nError += 1
-                        print(nLinea, 'No coincide la vida util:',
-                              vidaUtilCompra, csvVidaUtilCompra, row)
+                        if planta.fecha_depreciacion == fechaSinInicio:
+                            vidaUtilCompra = csvVidaUtilCompra
+                        else:
+                            nError += 1
+                            print(nLinea, 'No coincide la vida util:',
+                                  vidaUtilCompra, csvVidaUtilCompra, row)
 
                         # if planta.fecha_depreciacion >= fechaIngreso:
                         #     print('Fec.Depr.Planta:',

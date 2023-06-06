@@ -15,8 +15,10 @@ class Command(BaseCommand):
     @transaction.atomic()
     def handle(self, *args, **kwargs):
         lista = Activo.objects.all()
+        n = 0
         for r in lista:
-            print(r.pk, r.nombre, r.fecha_termino)
+            print(n, r.pk, r.nombre, r.fecha_termino)
             r.fecha_termino = None
-            r.numero_interno = '.'
+            r.numero_interno = str(n)
             r.save()
+            n += 1

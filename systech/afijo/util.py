@@ -8,7 +8,7 @@ def dateToPeriodo(fec):
     if fec == None: return None
     periodo = fec
     # logger.info(periodo)
-    if periodo.day > 15:
+    if periodo.day > 31:
         periodo = periodo.replace(day=1)
         periodo = periodo + relativedelta(months=1)
     else:

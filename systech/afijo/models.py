@@ -1,6 +1,6 @@
-# import datetime
 import logging
 
+from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
@@ -11,8 +11,6 @@ from django.utils import timezone
 from .util import dateToPeriodo, diff_meses, dump
 
 logger = logging.getLogger(__name__)
-
-# Modelos.
 
 
 class Estado(models.Model):
@@ -181,6 +179,8 @@ class Activo(models.Model):
     def calculaDepreciacion(self):
         self.__dict__
         self.pre_delete(instance=self)
+
+        fechaSinInicio = datetime(2000, 1, 1).date()
         "Borra el activo de la tabla de calculo"
         ActivoDepreciacion.objects.filter(activo=self).delete()
         # Periodo Inicio (aaaa-mm)
@@ -189,19 +189,36 @@ class Activo(models.Model):
         else:
             fecIni = self.fecha_inicio
 
-        periodoIni = dateToPeriodo(
-            fecIni if fecIni > self.planta.fecha_depreciacion else self.planta.
-            fecha_depreciacion)
-        "Duración Planta en meses"
-        if self.vida_util_compra:
-            duracionPlanta = diff_meses(fecIni, self.planta.fecha_termino)
-            periodoFin = periodoIni + relativedelta(months=duracionPlanta)
+        if self.planta.fecha_depreciacion == fechaSinInicio:
+            periodoIni = dateToPeriodo(
+                self.fecha_ingreso) + relativedelta(months=1)
         else:
-            periodoFin = dateToPeriodo(self.planta.fecha_termino)
-            duracionPlanta = diff_meses(periodoIni, periodoFin)
-        if duracionPlanta <= 0:
-            duracionPlanta = 1
-        "Duración Activo en meses"
+            periodoIni = dateToPeriodo(
+                fecIni if fecIni > self.planta.fecha_depreciacion else self.
+                planta.fecha_depreciacion)
+            if fecIni.year * 100 + fecIni.month == self.planta.fecha_depreciacion.year * 100 + self.planta.fecha_depreciacion.month:
+                if (fecIni > self.planta.fecha_depreciacion):
+                    periodoIni += relativedelta(months=1)
+            # elif fecIni.year * 100 + fecIni.month < self.planta.fecha_depreciacion.year * 100 + self.planta.fecha_depreciacion.month:
+            else:
+                # if fecIni.day <= 28:
+                periodoIni += relativedelta(months=1)
+        "Duración Planta en meses"
+        if self.planta.fecha_depreciacion == fechaSinInicio:
+            periodoFin = periodoIni + relativedelta(
+                months=self.duracion_maxima)
+            duracionPlanta = self.duracion_maxima
+        else:
+            if self.vida_util_compra:
+                duracionPlanta = diff_meses(fecIni,
+                                            self.planta.fecha_termino) + 24 - 1
+                periodoFin = periodoIni + relativedelta(months=duracionPlanta)
+            else:
+                periodoFin = dateToPeriodo(self.planta.fecha_termino) + 24
+                duracionPlanta = diff_meses(periodoIni, periodoFin)
+            if duracionPlanta <= 0:
+                duracionPlanta = 1
+        "Duración Activo en meses @Deprecated"
         if self.duracion_clase == 'C':
             duracionActivo = duracionPlanta
         elif self.duracion_clase == 'C24':
@@ -225,7 +242,8 @@ class Activo(models.Model):
             pond = (1 if valorContable >= 0 else -1)
             acumTotal = 0
             acumAnual = 0
-            while i < duracionPlanta and i < duracionActivo and periodoIni <= periodoBaja and valorContable * pond > 0:
+            duracion = duracionActivo if duracionActivo > duracionPlanta else duracionPlanta
+            while i < duracion and periodoIni <= periodoBaja and valorContable * pond > 0:
                 acumTotal += valorDep
                 acumAnual += valorDep
                 valorContable -= valorDep
@@ -358,6 +376,87 @@ class ActivoDepreciacion(models.Model):
 
     class Meta:
         unique_together = [['activo', 'planta', 'periodo']]
+
+
+class ActivoDepAcum(models.Model):
+    "Es una visat de la BD para armar el informe"
+    activo_id = models.BigIntegerField('Id. Activo')
+    activo_tipo = models.CharField('Tipo de Activo', max_length=250)
+    activo_nombre = models.CharField('Nombre Activo', max_length=250)
+    numero_factura = models.CharField('Número Factura', max_length=250)
+    proveedor = models.CharField('Proveedor', max_length=250)
+    activo_fecha_compra = models.DateField('Fecha Compra')
+    activo_valor = models.BigIntegerField('Valor Compra')
+    planta_nombre = models.CharField('Nombre Planta', max_length=250)
+    planta_ubicacion = models.CharField('Ubicación Planta', max_length=250)
+    fecha_inicio = models.DateField('Fecha Concesión')
+    fecha_termino = models.DateField('Fecha Término Dep.')
+    fecha_depreciacion = models.DateField('Fecha Inicio Dep.')
+    valor_depreciacion = models.BigIntegerField('Depreciación Mensual')
+    acum_total = models.BigIntegerField('Acumuluado Total')
+    acum_anual = models.BigIntegerField('Acumuluado Ejercicio')
+    duracion_real = models.IntegerField('Duración Real en [meses]')
+    dep_acum = models.BigIntegerField('Depreciación Acumulada')
+    neto = models.BigIntegerField('Neto')
+    periodo = models.DateField('Periodo', blank=False, null=False)
+
+    class Meta:
+        managed = False
+        db_table = 'afijo_v_deprec_acum'
+
+
+class ActivoDepMax(models.Model):
+    "Es una visat de la BD para armar el informe"
+    activo_id = models.BigIntegerField('Id. Activo')
+    activo_tipo = models.CharField('Tipo de Activo', max_length=250)
+    activo_nombre = models.CharField('Nombre Activo', max_length=250)
+    numero_factura = models.CharField('Número Factura', max_length=250)
+    proveedor = models.CharField('Proveedor', max_length=250)
+    activo_fecha_compra = models.DateField('Fecha Compra')
+    activo_valor = models.BigIntegerField('Valor Compra')
+    planta_nombre = models.CharField('Nombre Planta', max_length=250)
+    planta_ubicacion = models.CharField('Ubicación Planta', max_length=250)
+    fecha_inicio = models.DateField('Fecha Concesión')
+    fecha_termino = models.DateField('Fecha Término Dep.')
+    fecha_depreciacion = models.DateField('Fecha Inicio Dep.')
+    valor_depreciacion = models.BigIntegerField('Depreciación Mensual')
+    acum_total = models.BigIntegerField('Acumuluado Total')
+    acum_anual = models.BigIntegerField('Acumuluado Ejercicio')
+    duracion_real = models.IntegerField('Duración Real en [meses]')
+    dep_acum = models.BigIntegerField('Depreciación Acumulada')
+    neto = models.BigIntegerField('Neto')
+    periodo = models.DateField('Periodo', blank=False, null=False)
+
+    class Meta:
+        managed = False
+        db_table = 'afijo_v_deprec_max'
+
+
+class ActivoDepMin(models.Model):
+    "Es una visat de la BD para armar el informe"
+    activo_id = models.BigIntegerField('Id. Activo')
+    activo_tipo = models.CharField('Tipo de Activo', max_length=250)
+    activo_nombre = models.CharField('Nombre Activo', max_length=250)
+    numero_factura = models.CharField('Número Factura', max_length=250)
+    proveedor = models.CharField('Proveedor', max_length=250)
+    activo_fecha_compra = models.DateField('Fecha Compra')
+    activo_valor = models.BigIntegerField('Valor Compra')
+    planta_nombre = models.CharField('Nombre Planta', max_length=250)
+    planta_ubicacion = models.CharField('Ubicación Planta', max_length=250)
+    fecha_inicio = models.DateField('Fecha Concesión')
+    fecha_termino = models.DateField('Fecha Término Dep.')
+    fecha_depreciacion = models.DateField('Fecha Inicio Dep.')
+    valor_depreciacion = models.BigIntegerField('Depreciación Mensual')
+    acum_total = models.BigIntegerField('Acumuluado Total')
+    acum_anual = models.BigIntegerField('Acumuluado Ejercicio')
+    duracion_real = models.IntegerField('Duración Real en [meses]')
+    dep_acum = models.BigIntegerField('Depreciación Acumulada')
+    neto = models.BigIntegerField('Neto')
+    periodo = models.DateField('Periodo', blank=False, null=False)
+
+    class Meta:
+        managed = False
+        db_table = 'afijo_v_deprec_min'
 
 
 # Funciones de señales para save o delete

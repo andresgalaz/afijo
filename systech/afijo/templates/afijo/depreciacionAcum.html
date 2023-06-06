@@ -61,37 +61,18 @@
     <tbody>
       {% for depmes in depreciacion_list %}
       <tr>
-        <!-- <th scope="row">{{ page_obj.start_index | add:forloop.counter0 }}</th> -->
-        <td>
-          {% if depmes.activo__tipoActivo == 'A' %} Acondicionamiento
-          <!-- -->
-          {% elif depmes.activo__tipoActivo == 'E' %} Edificio
-          <!-- -->
-          {% elif depmes.activo__tipoActivo == 'O' %} Obras en curso
-          <!-- -->
-          {% elif depmes.activo__tipoActivo == 'M' %} Maquinaria
-          <!-- -->
-          {% elif depmes.activo__tipoActivo == 'C' %} Equipos de computación
-          <!-- -->
-          {% elif depmes.activo__tipoActivo == 'S' %} Software
-          <!-- -->
-          {% elif depmes.activo__tipoActivo == 'U' %} Muebles y Utiles
-          <!-- -->
-          {% else %} No definido
-          <!-- -->
-          {% endif %}
-        </td>
-        <td>{{ depmes.activo__nombre }}</td>
-        <td>{{ depmes.activo__proveedor }}</td>
-        <td>{{ depmes.activo__numero_factura }}</td>
-        <td>{{ depmes.planta__nombre }}</td>
-        <td>{{ depmes.planta__ubicacion }}</td>
-        <td align="middle">{{ depmes.activo__fecha_ingreso|date:'d/m/Y' }}</td>
-        <td align="middle">{{ depmes.planta__fecha_inicio|date:'d/m/Y' }}</td>
-        <td align="middle">{{ depmes.planta__fecha_depreciacion|date:'d/m/Y' }}</td>
-        <td align="middle">{{ depmes.planta__fecha_termino|date:'d/m/Y' }}</td>
+        <td>{{ depmes.activo_tipo }}</td>
+        <td>{{ depmes.activo_nombre }}</td>
+        <td>{{ depmes.proveedor }}</td>
+        <td>{{ depmes.numero_factura }}</td>
+        <td>{{ depmes.planta_nombre }}</td>
+        <td>{{ depmes.planta_ubicacion }}</td>
+        <td align="middle">{{ depmes.activo_fecha_compra|date:'d/m/Y' }}</td>
+        <td align="middle">{{ depmes.fecha_inicio|date:'d/m/Y' }}</td>
+        <td align="middle">{{ depmes.fecha_depreciacion|date:'d/m/Y' }}</td>
+        <td align="middle">{{ depmes.fecha_termino|date:'d/m/Y' }}</td>
         <td align="middle">{{ depmes.duracion_real }}</td>
-        <td align="right">{{ depmes.activo__valor }}</td>
+        <td align="right">{{ depmes.activo_valor }}</td>
         <td align="right">{{ depmes.dep_acum }}</td>
         <td align="right">{{ depmes.acum_anual }}</td>
         <td align="right">{{ depmes.acum_total}}</td>
@@ -102,8 +83,6 @@
 (-) Depreciación del ejercicio $ 1.485.161.073 (desde Ene a Dic 2022)
 Total Depreciacion $ 5.035.932.326 (suma de las depreciaciones)
 (=) ACTIVOS NETOS $ 7.482.018.281 (Valor de adquisición, menos Total Depreciación).
-
-
         -->
       </tr>
       {% endfor %}

@@ -2,20 +2,15 @@ import logging
 import csv
 
 from datetime import datetime
-from dateutil.relativedelta import relativedelta
 
 from django import forms
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import Sum, Count, Min, Max, F, Q, Value, CharField
-from django.db.models.functions import Extract
+from django.db.models import Q, Case, When  # , Sum, Count, Min, Max, F, Value, CharField
 from django.db.models.functions.datetime import ExtractMonth, ExtractYear
-from django.db.models.query import QuerySet
 from django.http import HttpResponse
-from django.views import generic
 from django.views.generic.edit import FormMixin
 from django.views.generic.list import ListView
 
-from .models import Activo, Planta, ActivoDepreciacion
+from .models import Activo, Planta, ActivoDepreciacion, ActivoDepAcum, ActivoDepMax, ActivoDepMin
 from .forms import PlantaForm
 
 logger = logging.getLogger(__name__)
@@ -88,7 +83,7 @@ class DepreciacionAcumFilterForm(forms.Form):
 
 
 class DepreciacionAcumView(FormMixin, ListView):
-    model = ActivoDepreciacion
+    model = ActivoDepAcum
     template_name = 'afijo/depreciacionAcum.html'
     paginate_by = 50
     form_class = DepreciacionAcumFilterForm
@@ -106,45 +101,52 @@ class DepreciacionAcumView(FormMixin, ListView):
         return context
 
     def querysetWrap(self, prmPlanta, prmPeriodo):
-        print('querysetWrap v2', prmPlanta, '-', prmPeriodo)
         # prepare filters to apply to queryset
         filters = {}
+        filtersMax = {}
+        filtersMin = {}
         if prmPlanta:
             filters['planta'] = Planta.objects.get(id=int(prmPlanta))
+            filtersMax['planta'] = Planta.objects.get(id=int(prmPlanta))
         if prmPeriodo:
             dPeriodo = datetime.strptime(prmPeriodo, '%Y-%m').date()
-            # filters['periodo__lt'] = dPeriodo + relativedelta(months=1)
-            filters['periodo__lt'] = dPeriodo + relativedelta(months=1)
-            print('querySetWrap periodo__lt', dPeriodo, filters['periodo__lt'])
+            filters['periodo'] = dPeriodo
+            filtersMax['periodo__lt'] = dPeriodo
+            filtersMin['periodo__gt'] = dPeriodo
+            print("filters['periodo'] = ", filters['periodo'])
+            print("filtersMax['periodo__lt'] = ", filtersMax['periodo__lt'])
+            print("filtersMax['periodo__gt'] = ", filtersMin['periodo__gt'])
 
         if len(filters) == 0:
             # Genera una salida vacía, se debe seleccionar planta
-            return ActivoDepreciacion.objects.filter(periodo__year=1900)
+            return ActivoDepAcum.objects.filter(periodo__year=1900)
 
-        resp = ActivoDepreciacion.objects.filter(Q(**filters)) \
-            .values('planta__nombre','planta__ubicacion','planta__fecha_inicio', 'planta__fecha_termino', \
-                    'activo__tipoActivo','activo__id','activo__nombre','activo__numero_factura', \
-                    'activo__proveedor','activo__fecha_ingreso','planta__fecha_depreciacion','activo__valor', \
-                    'valor_depreciacion', 'acum_total', 'acum_anual','duracion_real' \
-                    ) \
-            .annotate( visible=Value('1',output_field=CharField()), \
-                      dep_acum = F('acum_total') - F('acum_anual'), \
-                      neto = F('activo__valor') - F('acum_total'), \
-                      ) \
-            .order_by('activo__id','-periodo')
-
-        # Solo deja el primer registro de cada activo__id
+        qAcum = ActivoDepAcum.objects.filter(Q(**filters)).values('activo_id', 'activo_tipo', 'activo_nombre', \
+               'numero_factura', 'proveedor', 'activo_fecha_compra', 'activo_valor', 'planta_nombre', \
+               'planta_ubicacion', 'fecha_inicio', 'fecha_termino', 'fecha_depreciacion', 'valor_depreciacion', \
+               'acum_total', 'acum_anual', 'duracion_real', 'dep_acum', 'neto', 'periodo' )
+        # .order_by('activo_id')
+        qMax = ActivoDepMax.objects.filter(Q(**filtersMax)).values('activo_id', 'activo_tipo', 'activo_nombre', \
+               'numero_factura', 'proveedor', 'activo_fecha_compra', 'activo_valor', 'planta_nombre', \
+               'planta_ubicacion', 'fecha_inicio', 'fecha_termino', 'fecha_depreciacion', 'valor_depreciacion', \
+               'acum_total', 'acum_anual', 'duracion_real', 'dep_acum', 'neto', 'periodo' )
+        # annotate(acum_anual = Case(When('periodo__year' == dPeriodo.year,then='acum_anual'),default=0))
+        qMin = ActivoDepMin.objects.filter(Q(**filtersMin)).values('activo_id', 'activo_tipo', 'activo_nombre', \
+               'numero_factura', 'proveedor', 'activo_fecha_compra', 'activo_valor', 'planta_nombre', \
+               'planta_ubicacion', 'fecha_inicio', 'fecha_termino', 'fecha_depreciacion', 'valor_depreciacion', \
+               'acum_total', 'acum_anual', 'duracion_real', 'dep_acum', 'neto', 'periodo' )
+        # .order_by('activo_id')
+        print("qAcum:", len(qAcum))
+        print("qMax:", len(qMax))
+        print("qMin:", len(qMin))
+        resp = qAcum.union(qMax).union(qMin).order_by('activo_id')
         i = 0
         while i < len(resp):
-            activoId = resp[i]['activo__id']
+            periodo = resp[i]['periodo']
+            if periodo.year < dPeriodo.year:
+                resp[i]['acum_anual'] = 0
             i += 1
-            while i < len(resp) and activoId == resp[i]['activo__id']:
-                resp[i]['visible'] = '0'
-                i += 1
-
-        respUniqe = [s for s in resp if s['visible'] == '1']
-        print('respUniqe:', len(respUniqe))
-        return respUniqe
+        return resp
 
     def get_queryset(self):
         print('get_queryset')
@@ -181,20 +183,22 @@ class DepreciacionAcumView(FormMixin, ListView):
             'Neto',
         ])
         for fila in qrySet:
+            if fila['numero_factura'] == None:
+                fila['numero_factura'] = ''
             writer.writerow([
-                fila['activo__id'],
-                dict(Activo.TipoActivo)[fila['activo__tipoActivo']],
-                fila['activo__nombre'].replace('\n', ' '),
-                fila['activo__proveedor'].replace('\n', ' '),
-                fila['activo__numero_factura'].replace('\n', ' '),
-                fila['planta__nombre'],
-                fila['planta__ubicacion'],
-                fila['activo__fecha_ingreso'],
-                fila['planta__fecha_inicio'],
-                fila['planta__fecha_depreciacion'],
-                fila['planta__fecha_termino'],
+                fila['activo_id'],
+                fila['activo_tipo'],
+                fila['activo_nombre'].replace('\n', ' '),
+                fila['proveedor'].replace('\n', ' '),
+                fila['numero_factura'].replace('\n', ' '),
+                fila['planta_nombre'],
+                fila['planta_ubicacion'],
+                fila['activo_fecha_compra'],
+                fila['fecha_inicio'],
+                fila['fecha_depreciacion'],
+                fila['fecha_termino'],
                 fila['duracion_real'],
-                fila['activo__valor'],
+                fila['activo_valor'],
                 fila['dep_acum'],
                 fila['acum_anual'],
                 fila['acum_total'],

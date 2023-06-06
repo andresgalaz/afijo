@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 class SoloLectura(admin.ModelAdmin):
+
     def has_add_permission(self, request, obj=None):
         return False
 
@@ -39,9 +40,9 @@ class PlantaAdminForm(admin.ModelAdmin):
 
 
 class ActivoAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'fecha_inicio', 'fecha_termino', 'valor',
+    list_display = ('id', 'nombre', 'fecha_inicio', 'fecha_termino', 'valor',
                     'estado', 'planta')
-    search_fields = ('nombre', 'modelo')
+    search_fields = ('id', 'nombre', 'modelo')
 
 
 class MovimientoAdmin(admin.ModelAdmin):
