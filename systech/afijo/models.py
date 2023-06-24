@@ -102,6 +102,7 @@ class Activo(models.Model):
         ('C', 'Equipos de computación'),
         ('S', 'Software'),
         ('U', 'Muebles y Utiles'),
+        ('V', 'Vehiculos'),
     ]
     ClaseDuracion = [
         ('C', 'Desde Concesión'),

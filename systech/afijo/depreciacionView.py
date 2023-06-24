@@ -2,16 +2,17 @@ import logging
 import csv
 
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 from django import forms
-from django.db.models import Q, Case, When  # , Sum, Count, Min, Max, F, Value, CharField
+from django.db.models import Q  # Case, When, Sum, Count, Min, Max, F, Value, CharField
 from django.db.models.functions.datetime import ExtractMonth, ExtractYear
 from django.http import HttpResponse
 from django.views.generic.edit import FormMixin
 from django.views.generic.list import ListView
 
-from .models import Activo, Planta, ActivoDepreciacion, ActivoDepAcum, ActivoDepMax, ActivoDepMin
-from .forms import PlantaForm
+from .models import Planta, ActivoDepreciacion, ActivoDepAcum, ActivoDepMax, ActivoDepMin  # Activo,
+# from .forms import PlantaForm
 
 logger = logging.getLogger(__name__)
 
@@ -113,9 +114,11 @@ class DepreciacionAcumView(FormMixin, ListView):
             filters['periodo'] = dPeriodo
             filtersMax['periodo__lt'] = dPeriodo
             filtersMin['periodo__gt'] = dPeriodo
+            filtersMin['activo_fecha_compra__lt'] = dPeriodo + relativedelta(
+                months=1)
             print("filters['periodo'] = ", filters['periodo'])
             print("filtersMax['periodo__lt'] = ", filtersMax['periodo__lt'])
-            print("filtersMax['periodo__gt'] = ", filtersMin['periodo__gt'])
+            print("filtersMax = ", filtersMin)
 
         if len(filters) == 0:
             # Genera una salida vacía, se debe seleccionar planta

@@ -35,7 +35,7 @@ LISTA_TIPO_ACTIVO = [
     ('O', 'OBRAS EN CURSO'),
     ('A', 'PREOPERATION EXPENSIVES'),
     ('S', 'SOFTWARE'),
-    ('U', 'VEHICULOS'),
+    ('V', 'VEHICULOS'),
 ]
 
 LISTA_PLANTA = [
