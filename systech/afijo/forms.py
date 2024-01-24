@@ -1,16 +1,15 @@
 import logging
 
 from django import forms
-from django.http import request, HttpResponseRedirect
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
-from .models import Estado, Planta, Activo, Movimiento, TipoDepreciacion
+from .models import Planta
 
 logger = logging.getLogger(__name__)
 
 
-class PlantaForm(forms.Form
-                 ):  #Note that it is not inheriting from forms.ModelForm
+class PlantaForm(forms.Form):
+    # Note that it is not inheriting from forms.ModelForm
     planta = forms.ModelChoiceField(
         queryset=Planta.objects.all().order_by('nombre'),
         label='Seleccione planta',

@@ -63,6 +63,11 @@
   $(function () {
     $(".toast").toast("show");
   });
+
+  $("tr").dblclick(function () {
+    var id = $(this).attr("id");
+    console.log(id);
+  });
 </script>
 
 {% endblock %}

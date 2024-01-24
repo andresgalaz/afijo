@@ -107,8 +107,9 @@ class DepreciacionAcumView(FormMixin, ListView):
         filtersMax = {}
         filtersMin = {}
         if prmPlanta:
-            filters['planta'] = Planta.objects.get(id=int(prmPlanta))
-            filtersMax['planta'] = Planta.objects.get(id=int(prmPlanta))
+            filters['planta_id'] = prmPlanta
+            filtersMin['planta_id'] = prmPlanta
+            filtersMax['planta_id'] = prmPlanta
         if prmPeriodo:
             dPeriodo = datetime.strptime(prmPeriodo, '%Y-%m').date()
             filters['periodo'] = dPeriodo
@@ -118,7 +119,7 @@ class DepreciacionAcumView(FormMixin, ListView):
                 months=1)
             print("filters['periodo'] = ", filters['periodo'])
             print("filtersMax['periodo__lt'] = ", filtersMax['periodo__lt'])
-            print("filtersMax = ", filtersMin)
+            print("filtersMin = ", filtersMin)
 
         if len(filters) == 0:
             # Genera una salida vacía, se debe seleccionar planta

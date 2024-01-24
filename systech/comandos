@@ -1,0 +1,21 @@
+Postgres
+afijo_db systech 123123
+
+docker exec -it postgres-afijo psql -d afijo_db -U systech 
+docker exec -i  postgres-afijo psql -d afijo_db -U systech < adijo_db.sql
+
+psql -d afijo_db -h localhost -U systech -w
+pg_dump -d afijo_db -h localhost -U systech -w > adijo_db.sql
+
+./manage.py collectstatic
+./manage.py makemigrations afijo
+./manage.py migrate
+./manage.py runserver 0.0.0.0:8000
+./manage.py importa_csv carga_inicial/afijo.csv 
+./manage.py changepassword USUARIO
+
+# Traer BD de producción
+docker exec -i  postgres-afijo psql -d afijo_db -U systech < afdijo_db.sql
+./manage.py makemigrations afijo
+./manage.py migrate --fake-initial
+

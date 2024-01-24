@@ -5,7 +5,8 @@ logger = logging.getLogger(__name__)
 
 
 def dateToPeriodo(fec):
-    if fec == None: return None
+    if fec is None:
+        return None
     periodo = fec
     # logger.info(periodo)
     if periodo.day > 31:

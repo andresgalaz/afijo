@@ -8,7 +8,7 @@ from django.db import models
 from django.db.models.signals import post_save, pre_save, pre_delete
 from django.utils import timezone
 
-from .util import dateToPeriodo, diff_meses, dump
+from .util import dateToPeriodo, diff_meses
 
 logger = logging.getLogger(__name__)
 
@@ -55,21 +55,21 @@ class Planta(models.Model):
     duracion_concesion = models.IntegerField('Vida Útil Proyecto')
     activa = models.BooleanField('Depreciación Activa', default=True)
 
-    #sobre_termino = models.IntegerField('Sobre tiempo depreciación', default=0)
+    # sobre_termino = models.IntegerField('Sobre tiempo depreciación', default=0)
 
     def __str__(self):
         return self.nombre + '  ' + self.ubicacion + ', ' + self.region.nombre
 
     def pre_save(sender, instance, **kwargs):
         timeDif = relativedelta(instance.fecha_termino, instance.fecha_inicio)
-        if not timeDif is None:
+        if timeDif is not None:
             instance.duracion_concesion = timeDif.years * 12 + timeDif.months
         try:
             planta_prev = Planta.objects.get(id=instance.id)
         except ObjectDoesNotExist:
             planta_prev = None
 
-        if not planta_prev is None and (
+        if planta_prev is not None and (
                 planta_prev.fecha_depreciacion != instance.fecha_depreciacion
                 or planta_prev.fecha_termino != instance.fecha_termino or
                 planta_prev.duracion_concesion != instance.duracion_concesion
@@ -114,6 +114,7 @@ class Activo(models.Model):
                                          on_delete=models.CASCADE)
     nombre = models.CharField('Nombre', max_length=250)
     modelo = models.CharField('Modelo', max_length=80, null=True, blank=True)
+    contab = models.CharField('Cta Contable', max_length=20)
     planta = models.ForeignKey(Planta, models.SET_NULL, blank=True, null=True)
     linea = models.CharField('Línea', max_length=2,
                              default=1)  # , blank=True, null=True)
@@ -215,7 +216,7 @@ class Activo(models.Model):
                                             self.planta.fecha_termino) + 24 - 1
                 periodoFin = periodoIni + relativedelta(months=duracionPlanta)
             else:
-                periodoFin = dateToPeriodo(self.planta.fecha_termino) + 24
+                periodoFin = dateToPeriodo(self.planta.fecha_termino) + relativedelta(months=24)
                 duracionPlanta = diff_meses(periodoIni, periodoFin)
             if duracionPlanta <= 0:
                 duracionPlanta = 1
@@ -234,7 +235,7 @@ class Activo(models.Model):
             round((valorContable - self.valorResidual) / duracionActivo))
         "Baja Activo"
         periodoBaja = dateToPeriodo(self.fecha_baja)
-        if periodoBaja == None:
+        if periodoBaja is None:
             periodoBaja = periodoFin
         periodoBaja += relativedelta(months=1)
         "Recalcula depreciación por año hasta duración máxima, termino de la planta o baja del activo"
@@ -271,10 +272,13 @@ class Activo(models.Model):
         if instance.vida_util_compra:
             fecIni = instance.fecha_ingreso
         else:
-            fecIni = instance.fecha_inicio
-        periodoIni = dateToPeriodo(
-            fecIni if fecIni > instance.planta.fecha_depreciacion else instance
-            .planta.fecha_depreciacion)
+            if instance.fecha_inicio is None:
+                fecIni = instance.fecha_ingreso
+            else:
+                fecIni = instance.fecha_inicio
+
+        periodoIni = dateToPeriodo(fecIni if fecIni > instance.planta.fecha_depreciacion else instance.planta.fecha_depreciacion)
+
         "Duración Planta en meses"
         if instance.vida_util_compra:
             duracionPlanta = diff_meses(fecIni, instance.planta.fecha_termino)
@@ -282,14 +286,16 @@ class Activo(models.Model):
         else:
             periodoFin = dateToPeriodo(instance.planta.fecha_termino)
             duracionPlanta = diff_meses(periodoIni, periodoFin)
-        if instance.duracion_clase == 'C':
-            duracionActivo = duracionPlanta
-        elif instance.duracion_clase == 'C24':
-            duracionActivo = duracionPlanta + 24
-        elif instance.duracion_clase == 'T':
-            duracionActivo = instance.duracion_maxima  # * 12 -- Se dejó de usar años
-        else:
-            duracionActivo = 0
+
+        # if instance.duracion_clase == 'C':
+        #     duracionActivo = duracionPlanta
+        # elif instance.duracion_clase == 'C24':
+        #     duracionActivo = duracionPlanta + 24
+        # elif instance.duracion_clase == 'T':
+        #     duracionActivo = instance.duracion_maxima  # * 12 -- Se dejó de usar años
+        # else:
+        #     duracionActivo = 0
+
         try:
             instance.codigo_interno = "-".join([
                 instance.planta.nombre[-4:3],
@@ -304,7 +310,7 @@ class Activo(models.Model):
         if instance.fecha_inicio is None:
             instance.fecha_inicio = instance.planta.fecha_depreciacion
         "Actualiza fecha de término si es nula"
-        if not instance.fecha_inicio is None:  # and instance.fecha_termino is None:
+        if instance.fecha_inicio is not None:  # and instance.fecha_termino is None:
             instance.fecha_termino = instance.fecha_inicio + relativedelta(
                 months=instance.duracion_maxima)
 
@@ -400,6 +406,7 @@ class ActivoDepAcum(models.Model):
     dep_acum = models.BigIntegerField('Depreciación Acumulada')
     neto = models.BigIntegerField('Neto')
     periodo = models.DateField('Periodo', blank=False, null=False)
+    planta_id = models.BigIntegerField('Id. Planta')
 
     class Meta:
         managed = False
@@ -427,6 +434,7 @@ class ActivoDepMax(models.Model):
     dep_acum = models.BigIntegerField('Depreciación Acumulada')
     neto = models.BigIntegerField('Neto')
     periodo = models.DateField('Periodo', blank=False, null=False)
+    planta_id = models.BigIntegerField('Id. Planta')
 
     class Meta:
         managed = False
@@ -454,6 +462,7 @@ class ActivoDepMin(models.Model):
     dep_acum = models.BigIntegerField('Depreciación Acumulada')
     neto = models.BigIntegerField('Neto')
     periodo = models.DateField('Periodo', blank=False, null=False)
+    planta_id = models.BigIntegerField('Id. Planta')
 
     class Meta:
         managed = False
