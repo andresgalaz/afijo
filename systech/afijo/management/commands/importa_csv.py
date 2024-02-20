@@ -12,7 +12,7 @@ from django.core.management import BaseCommand
 from django.utils import timezone
 from django.db.utils import DataError
 from django.db import transaction
-from afijo.models import Estado, Planta, Activo, ActivoDepreciacion, TipoDepreciacion
+from afijo.models import Estado, Planta, Activo, TipoDepreciacion
 from afijo.util import diff_meses, dateToPeriodo
 
 LISTA_TIPO_ACTIVO = [
@@ -44,7 +44,9 @@ LISTA_PLANTA = [
     ('B0800', 'BIO BIO'),
     ('AB0541', 'CASABLANCA'),
     ('AB0728', 'CONSTITUCIÓN'),
+    ('AB0728', 'CONSTITUCION'),
     ('AB0726', 'CURICÓ'),
+    ('AB0726', 'CURICO'),
     ('HQ1300', 'HQ'),
     ('AB1308', 'LAMPA'),
     ('LA1300', 'LATAM'),
@@ -70,7 +72,7 @@ def str2date(cFecha):
                 "^([0-9][0-9]|19[0-9][0-9]|20[0-9][0-9])(\.|-|/)([1-9]|0[1-9]|1[0-2])(\.|-|/)([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])$",
                 cFecha):
             return datetime.strptime(cFecha, '%Y-%m-%d').date()
-    except:
+    except Exception:
         pass
 
 
@@ -109,6 +111,7 @@ class Command(BaseCommand):
 
     @transaction.atomic()
     def handle(self, *args, **options):
+        FORCED = False
         start_time = timezone.now()
         file_path = options["file_path"]
         fechaSinInicio = datetime(2000, 1, 1).date()
@@ -133,35 +136,35 @@ class Command(BaseCommand):
                     if isRowEmpty(row):
                         continue
 
-                    # csvNumeroFactura = row[4]
                     # csvUbicacion = row[6]
 
                     csvContab = row[0].strip()
                     csvTipoActivo = row[1].strip().upper()
                     csvNombreActivo = row[2].strip()
                     csvProveedor = row[3]
-                    csvPlanta = row[4].strip().upper()
-                    csvFechaCompra = row[5].strip()
-                    #  6 Año compra está en el campor anterior
-                    #  7 Fecha Concesión, se usa la de la planta
-                    #  8 Fecha termino Concesion, se usa la de la planta
-                    #  9 Vida Util Concesion, se usa la de la planta
-                    # 10 F inicio Depreciacion
-                    # 11 Fecha comienzo Operaciones, se usa la de la planta
-                    # 12 Año inicio depreciacion
-                    # 13 F. especial de inicio (Según fecha de compra
-                    # 14 Año inicio de depreciacion especial
-                    # 15 Efectivida de inicio de depreciación
-                    # 16 Año inicio de depreciacion definitivo                    
-                    # 17 Fecha de depreciacion definitiva
-                    # 18 Fecha Término Depreciación
-                    csvValor = row[19]
-                    # 20 Total Meses Amortización - Vida Util Proyecto (Meses), se calcula de la Planta
+                    csvNumeroFactura = row[4]
+                    csvPlanta = row[5].strip().upper()
+                    csvFechaCompra = row[6].strip()
+                    #  7 Año compra está en el campor anterior
+                    #  8 Fecha Concesión, se usa la de la planta
+                    #  9 Fecha termino Concesion, se usa la de la planta
+                    # 10 Vida Util Concesion, se usa la de la planta
+                    # 11 F inicio Depreciacion
+                    # 12 Fecha comienzo Operaciones, se usa la de la planta
+                    # 13 Año inicio depreciacion
+                    # 14 F. especial de inicio (Según fecha de compra
+                    # 15 Año inicio de depreciacion especial
+                    # 16 Efectivida de inicio de depreciación
+                    # 17 Año inicio de depreciacion definitivo                    
+                    # 18 Fecha de depreciacion definitiva
+                    # 19 Fecha Término Depreciación
+                    csvValor = row[20]
+                    # 21 Total Meses Amortización - Vida Util Proyecto (Meses), se calcula de la Planta
                     #       ( planta.fecha_termino + 24 ) - planta.fecha_depreciacion
-                    csvVidaUtilCompra = row[20]
-                    # 21 Vida util Restante(Meses)
-                    # 22 - 30: años 2015 - 2023
-                    # 32 Amort. Mensual - Usar para verificar cálculo
+                    csvVidaUtilCompra = row[21]
+                    # 22 Vida util Restante(Meses)
+                    # 23 - 30: años 2015 - 2023
+                    # 31 Amort. Mensual - Usar para verificar cálculo
 
                     if csvTipoActivo == '' and csvNombreActivo == '' and csvProveedor == '' and csvPlanta == '':
                         continue
@@ -198,19 +201,12 @@ class Command(BaseCommand):
 
                     if csvNombreActivo == '':
                         csvNombreActivo = csvProveedor
-                    # MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
-                    # parche temporal hasta definir que se hace con actvios sin nombre
-                    # MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
                     if csvNombreActivo == '':
-                        csvNombreActivo = 'No definido'
-                    # MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
-                    #
-                    # MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
-
-                    if csvNombreActivo == '':
-                        nError += 1
-                        print(nLinea, 'No hay nombre de activo', row)
-                        continue
+                        csvNombreActivo = 'No tiene descripción o nombre'
+                    # if csvNombreActivo == '':
+                    #     nError += 1
+                    #     print(nLinea, 'No hay nombre de activo', row)
+                    #     continue
 
                     if len(csvFechaCompra) == 0:
                         nError += 1
@@ -232,8 +228,6 @@ class Command(BaseCommand):
                         continue
                     valor = int(valor)
 
-                    if nLinea == 1506-4 or nLinea == 1515-4:
-                        print("Stop")
                     csvVidaUtilCompra = str2number(csvVidaUtilCompra)
                     if planta.fecha_depreciacion >= fechaIngreso:
                         vidaUtilCompra = diff_meses(planta.fecha_depreciacion,
@@ -241,38 +235,31 @@ class Command(BaseCommand):
                     elif planta.fecha_termino >= fechaSinFin:
                         vidaUtilCompra = csvVidaUtilCompra
                     else:
-                        vidaUtilCompra = diff_meses(fechaIngreso, planta.fecha_termino) + 24
-                        if planta.fecha_depreciacion < fechaIngreso:
-                            if fechaIngreso.day > planta.fecha_termino.day and not (fechaIngreso.month == planta.fecha_termino.month
-                                                                                    and fechaIngreso.year == planta.fecha_termino.year):
-                                v1 = abs(valor-(int((valor/vidaUtilCompra)+.5)*vidaUtilCompra))
-                                v2 = abs(valor-(int((valor/(vidaUtilCompra+1))+.5)*(vidaUtilCompra+1)))
-                                p1 = int(v1/int((valor/vidaUtilCompra)+.5)*100)
-                                if p1 > 50 and v1 > 50 and v2 < v1:
-                                    vidaUtilCompra += 1
-                        # if fechaIngreso.day > planta.fecha_termino.day and not (
-                        #         fechaIngreso.month
-                        #         == planta.fecha_termino.month
-                        #         and fechaIngreso.year
-                        #         == planta.fecha_termino.year):
-                        #     vidaUtilCompra += 1
-                                    
-                    # MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
-                    # parche temporal phasta definir calculo vida util
-                    # MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
-                    if (vidaUtilCompra != csvVidaUtilCompra):
+                        if fechaIngreso <= planta.fecha_termino:
+                            vidaUtilCompra = 24 + diff_meses(fechaIngreso, planta.fecha_termino)
+                        else:
+                            vidaUtilCompra = 23 + diff_meses(fechaIngreso, planta.fecha_termino)
+                        if False and planta.fecha_depreciacion < fechaIngreso:
+                            # if fechaIngreso.day > planta.fecha_termino.day and not (fechaIngreso.month == planta.fecha_termino.month
+                            #                                                         and fechaIngreso.year == planta.fecha_termino.year):
+                            #     v1 = abs(valor-(int((valor/vidaUtilCompra)+.5)*vidaUtilCompra))
+                            #     v2 = abs(valor-(int((valor/(vidaUtilCompra+1))+.5)*(vidaUtilCompra+1)))
+                            #     p1 = int(v1/int((valor/vidaUtilCompra)+.5)*100)
+                            #     if p1 > 50 and v1 > 50 and v2 < v1:
+                            #         vidaUtilCompra += 1
+                            if False and fechaIngreso.day > planta.fecha_termino.day and not (
+                                    fechaIngreso.month == planta.fecha_termino.month
+                                    and fechaIngreso.year == planta.fecha_termino.year):
+                                vidaUtilCompra += 1
+
+                    if FORCED and vidaUtilCompra != csvVidaUtilCompra:
                         vidaUtilCompra = csvVidaUtilCompra
-                    # MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
-                    #
-                    # MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
 
                     # Verfiicación fechas
                     if (vidaUtilCompra != csvVidaUtilCompra):
                         if planta.fecha_depreciacion == fechaSinInicio:
                             vidaUtilCompra = csvVidaUtilCompra
                         else:
-                            print(nLinea+4, csvTipoActivo, planta.ubicacion, dateToPeriodo(planta.fecha_depreciacion), dateToPeriodo(fechaIngreso),
-                                  dateToPeriodo(planta.fecha_depreciacion) != dateToPeriodo(fechaIngreso), valor, vidaUtilCompra, csvVidaUtilCompra, v1, v2)
                             nError += 1
                             print(nLinea, 'No coincide la vida util:', vidaUtilCompra, csvVidaUtilCompra, row)
 
@@ -295,7 +282,7 @@ class Command(BaseCommand):
                             # ubicacion=csvUbicacion,
                             factura_fisica=csvFacturaFisica,
                             proveedor=csvProveedor,
-                            # numero_factura=csvNumeroFactura,
+                            numero_factura=csvNumeroFactura,
                             fecha_ingreso=fechaIngreso,
                             duracion_maxima=vidaUtilCompra,
                             # duracion_clase=claseDuracion,

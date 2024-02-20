@@ -1,9 +1,8 @@
 import logging
 
-from django import forms
 from django.contrib import admin
+from rangefilter.filters import DateRangeFilter, NumericRangeFilter
 from django.conf.locale.es import formats as es_formats
-from django.core import serializers
 from .models import Estado, Planta, Activo, Movimiento, Region, TipoDepreciacion, TipoFamilia
 
 es_formats.DATETIME_FORMAT = "d M Y H:i:s"
@@ -24,11 +23,11 @@ class SoloLectura(admin.ModelAdmin):
 
 
 class PlantaAdminForm(admin.ModelAdmin):
-    list_display = ('nombre', 'ubicacion', 'fecha_inicio', 'fecha_termino',
+    list_display = ('nombre', 'alias', 'ubicacion', 'fecha_inicio', 'fecha_termino',
                     'fecha_depreciacion', 'get_region')
     list_select_related = ['region']
 
-    search_fields = ('nombre', 'ubicacion', 'region__nombre')
+    search_fields = ('nombre', 'alias', 'ubicacion', 'region__nombre')
 
     def has_delete_permission(self, request, obj=None):
         return False
@@ -43,12 +42,12 @@ class ActivoAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre', 'fecha_inicio', 'fecha_termino', 'valor',
                     'estado', 'planta')
     search_fields = ('id', 'nombre', 'modelo')
+    list_filter = ('planta', ('fecha_inicio', DateRangeFilter), ('valor', NumericRangeFilter))
 
 
 class MovimientoAdmin(admin.ModelAdmin):
     fields = ('activo', 'planta_destino', 'fecha_cambio')
-    list_display = ('activo', 'get_origen', 'get_destino', 'fecha_cambio',
-                    'ts_movim')
+    list_display = ('activo', 'get_origen', 'get_destino', 'fecha_cambio', 'ts_movim')
 
     # form = MovimForm
 

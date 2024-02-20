@@ -46,6 +46,7 @@ class Region(models.Model):
 
 class Planta(models.Model):
     nombre = models.CharField('Nombre', max_length=80, unique=True)
+    alias = models.CharField('Alias', max_length=20, unique=True)
     region = models.ForeignKey(Region, models.SET_NULL, blank=True, null=True)
     ubicacion = models.CharField('Ubicación', max_length=180)
     fecha_apertura = models.DateField('Fecha Apertura')
@@ -58,7 +59,7 @@ class Planta(models.Model):
     # sobre_termino = models.IntegerField('Sobre tiempo depreciación', default=0)
 
     def __str__(self):
-        return self.nombre + '  ' + self.ubicacion + ', ' + self.region.nombre
+        return self.nombre + '  ' + self.alias
 
     def pre_save(sender, instance, **kwargs):
         timeDif = relativedelta(instance.fecha_termino, instance.fecha_inicio)
@@ -231,8 +232,7 @@ class Activo(models.Model):
             duracionActivo = 0
         "Depreciación mensual"
         valorContable = self.valor
-        valorDep = int(
-            round((valorContable - self.valorResidual) / duracionActivo))
+        valorDep = (valorContable - self.valorResidual) / duracionActivo
         "Baja Activo"
         periodoBaja = dateToPeriodo(self.fecha_baja)
         if periodoBaja is None:
@@ -245,11 +245,13 @@ class Activo(models.Model):
             acumTotal = 0
             acumAnual = 0
             duracion = duracionActivo if duracionActivo > duracionPlanta else duracionPlanta
-            while i < duracion and periodoIni <= periodoBaja and valorContable * pond > 0:
+            while i < duracion and periodoIni <= periodoBaja and round(valorContable * pond, 0) > 0:
                 acumTotal += valorDep
                 acumAnual += valorDep
                 valorContable -= valorDep
                 if valorContable * pond < 0:
+                    acumTotal -= valorContable
+                    acumAnual -= valorContable
                     valorContable = 0
                 actDep = ActivoDepreciacion(activo=self,
                                             planta=self.planta,
@@ -304,7 +306,7 @@ class Activo(models.Model):
                 instance.familia.codigo,
                 str(instance.numero_interno).zfill(3),
             ])
-        except:
+        except Exception:
             pass
         "Actualiza fecha de inicio si es nula por la fecha de inicio depreciación de la planta"
         if instance.fecha_inicio is None:
@@ -347,7 +349,7 @@ class Movimiento(models.Model):
         try:
             actDep = ActivoDepreciacion.objects.get(activo=instance.activo,
                                                     periodo=periodoBaja)
-        except:
+        except Exception:
             actDep = None
 
         if actDep != None:
@@ -375,7 +377,7 @@ class ActivoDepreciacion(models.Model):
     planta = models.ForeignKey(Planta, on_delete=models.CASCADE)
     "Solo se usa Año y Mes"
     periodo = models.DateField('Periodo', blank=False, null=False)
-    valor_depreciacion = models.BigIntegerField('Valor Depreciación')
+    valor_depreciacion = models.DecimalField('Valor Depreciación', max_digits=18, decimal_places=5)
     valor_contable = models.BigIntegerField('Valor Contable', default=0)
     duracion_real = models.IntegerField('Duración Real', default=0)
     acum_total = models.BigIntegerField('Acumulado Total')
@@ -399,7 +401,7 @@ class ActivoDepAcum(models.Model):
     fecha_inicio = models.DateField('Fecha Concesión')
     fecha_termino = models.DateField('Fecha Término Dep.')
     fecha_depreciacion = models.DateField('Fecha Inicio Dep.')
-    valor_depreciacion = models.BigIntegerField('Depreciación Mensual')
+    valor_depreciacion = models.DecimalField('Valor Depreciación', max_digits=18, decimal_places=5)
     acum_total = models.BigIntegerField('Acumuluado Total')
     acum_anual = models.BigIntegerField('Acumuluado Ejercicio')
     duracion_real = models.IntegerField('Duración Real en [meses]')
@@ -427,7 +429,7 @@ class ActivoDepMax(models.Model):
     fecha_inicio = models.DateField('Fecha Concesión')
     fecha_termino = models.DateField('Fecha Término Dep.')
     fecha_depreciacion = models.DateField('Fecha Inicio Dep.')
-    valor_depreciacion = models.BigIntegerField('Depreciación Mensual')
+    valor_depreciacion = models.DecimalField('Valor Depreciación', max_digits=18, decimal_places=5)
     acum_total = models.BigIntegerField('Acumuluado Total')
     acum_anual = models.BigIntegerField('Acumuluado Ejercicio')
     duracion_real = models.IntegerField('Duración Real en [meses]')
@@ -455,7 +457,7 @@ class ActivoDepMin(models.Model):
     fecha_inicio = models.DateField('Fecha Concesión')
     fecha_termino = models.DateField('Fecha Término Dep.')
     fecha_depreciacion = models.DateField('Fecha Inicio Dep.')
-    valor_depreciacion = models.BigIntegerField('Depreciación Mensual')
+    valor_depreciacion = models.DecimalField('Valor Depreciación', max_digits=18, decimal_places=5)
     acum_total = models.BigIntegerField('Acumuluado Total')
     acum_anual = models.BigIntegerField('Acumuluado Ejercicio')
     duracion_real = models.IntegerField('Duración Real en [meses]')

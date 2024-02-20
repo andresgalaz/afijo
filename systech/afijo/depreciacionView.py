@@ -187,8 +187,10 @@ class DepreciacionAcumView(FormMixin, ListView):
             'Neto',
         ])
         for fila in qrySet:
-            if fila['numero_factura'] == None:
+            if fila['numero_factura'] is None:
                 fila['numero_factura'] = ''
+            if fila['proveedor'] is None:
+                fila['proveedor'] = ''
             writer.writerow([
                 fila['activo_id'],
                 fila['activo_tipo'],

@@ -6,7 +6,7 @@ __version__ = "v1.0"
 
 from django.core.management.base import BaseCommand
 from django.db import transaction
-from afijo.models import Estado, Planta, Activo, TipoDepreciacion
+from afijo.models import Activo
 
 
 class Command(BaseCommand):

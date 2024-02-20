@@ -2,17 +2,17 @@ import logging
 import csv
 
 from django import forms
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import Sum, Count, F, Q
-from django.db.models.functions import Extract
+# from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q  # Sum, Count, F,
+# from django.db.models.functions import Extract
 from django.db.models.functions.datetime import ExtractMonth, ExtractYear
 from django.http import HttpResponse
-from django.views import generic
+# from django.views import generic
 from django.views.generic.edit import FormMixin
 from django.views.generic.list import ListView
 
-from .models import Movimiento, Planta, Activo, ActivoDepreciacion
-from .forms import PlantaForm
+from .models import Planta, Activo  # , Movimiento, ActivoDepreciacion
+# from .forms import PlantaForm
 
 logger = logging.getLogger(__name__)
 

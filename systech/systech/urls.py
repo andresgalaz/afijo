@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
-from django.urls import include, path
+from django.urls import path  # include,
 
-from afijo.views import HomeView, PlantaList, PlantaDetail, PlantaDepreciacion \
-                      , PlantaDepreciacionAnual, PlantaDepreciacionMensual
+from afijo.views import HomeView, PlantaList, PlantaDepreciacion, \
+                        PlantaDepreciacionAnual, PlantaDepreciacionMensual
 from afijo.activoView import ActivoListView
 from afijo.depreciacionView import DepreciacionListView, DepreciacionAcumView
 from afijo.forms import PlantaForm
