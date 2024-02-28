@@ -1,13 +1,11 @@
 import logging
 import csv
+from datetime import datetime
 
 from django import forms
-# from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q  # Sum, Count, F,
-# from django.db.models.functions import Extract
 from django.db.models.functions.datetime import ExtractMonth, ExtractYear
 from django.http import HttpResponse
-# from django.views import generic
 from django.views.generic.edit import FormMixin
 from django.views.generic.list import ListView
 
@@ -89,7 +87,7 @@ class ActivoListView(FormMixin, ListView):
         # Create the HttpResponse object with the appropriate CSV header.
         response = HttpResponse(content_type='text/csv')
         response[
-            'Content-Disposition'] = 'attachment; filename="deprec_plantas.csv"'
+            'Content-Disposition'] = 'attachment; filename="deprec_activos_A' + datetime.now().strftime('%Y%m%d%H%M%S') + '.csv"'
 
         writer = csv.writer(response, delimiter=';')
         writer.writerow([

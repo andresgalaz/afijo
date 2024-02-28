@@ -254,7 +254,7 @@ class Activo(models.Model):
                                                 valor_contable=0,
                                                 valor_depreciacion=valorDep,
                                                 duracion_real=duracionActivo,
-                                                acum_total=self.valor,
+                                                acum_total=0,   # self.valor,
                                                 acum_anual=acumAnual + valorContable)
                 else:
                     acumTotal += valorDep

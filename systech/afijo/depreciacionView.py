@@ -164,7 +164,7 @@ class DepreciacionAcumView(FormMixin, ListView):
         # Create the HttpResponse object with the appropriate CSV header.
         response = HttpResponse(content_type='text/csv')
         response[
-            'Content-Disposition'] = 'attachment; filename="deprec_plantas.csv"'
+            'Content-Disposition'] = 'attachment; filename="deprec_activos_B' + datetime.now().strftime('%Y%m%d%H%M%S') + '.csv"'
 
         writer = csv.writer(response, delimiter=';')
         writer.writerow([
@@ -258,7 +258,7 @@ class DepreciacionListView(FormMixin, ListView):
         # Create the HttpResponse object with the appropriate CSV header.
         response = HttpResponse(content_type='text/csv')
         response[
-            'Content-Disposition'] = 'attachment; filename="deprec_plantas.csv"'
+            'Content-Disposition'] = 'attachment; filename="deprec_activos_C' + datetime.now().strftime('%Y%m%d%H%M%S') + '.csv"'
 
         writer = csv.writer(response, delimiter=';')
         writer.writerow([

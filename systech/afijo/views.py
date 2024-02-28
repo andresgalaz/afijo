@@ -1,14 +1,14 @@
 import logging
 import csv
 
+from datetime import datetime
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import Sum, Count, F
-from django.db.models.functions import Extract
-from django.db.models.functions.datetime import ExtractMonth, ExtractYear
+from django.db.models import Sum, Count
+from django.db.models.functions.datetime import ExtractYear
 from django.http import HttpResponse
 from django.views import generic
 
-from .models import Movimiento, Planta, Activo, ActivoDepreciacion
+from .models import Planta, Activo, ActivoDepreciacion
 from .forms import PlantaForm
 
 logger = logging.getLogger(__name__)
@@ -26,7 +26,7 @@ class PlantaList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['planta_list'] = Planta.objects \
-            .values('id','nombre','ubicacion','fecha_apertura') \
+            .values('id', 'nombre', 'ubicacion', 'fecha_apertura') \
             .annotate(cantidad=Count('activo__id')) \
             .order_by('nombre')
         return context
@@ -41,15 +41,15 @@ class PlantaDepreciacion(generic.ListView):
         # Create the HttpResponse object with the appropriate CSV header.
         response = HttpResponse(content_type='text/csv')
         response[
-            'Content-Disposition'] = 'attachment; filename="deprec_plantas.csv"'
+            'Content-Disposition'] = 'attachment; filename="deprec_activos_D' + datetime.now().strftime('%Y%m%d%H%M%S') + '.csv"'
 
         writer = csv.writer(response, delimiter=';')
         writer.writerow(
             ['Planta', 'Periodo', 'Depreciacion', 'Valor Contable'])
         for fila in ActivoDepreciacion.objects \
-            .values('planta__nombre','periodo') \
-            .annotate(depreciacion=Sum('valor_depreciacion'),contable=Sum('valor_contable')) \
-            .order_by('planta__nombre','periodo'):
+                .values('planta__nombre', 'periodo') \
+                .annotate(depreciacion=Sum('valor_depreciacion'), contable=Sum('valor_contable')) \
+                .order_by('planta__nombre', 'periodo'):
             writer.writerow([
                 fila['planta__nombre'], fila['periodo'], fila['depreciacion'],
                 fila['contable']
@@ -77,7 +77,7 @@ class PlantaDepreciacionAnual(generic.DetailView):
         context['periodo_list'] = ActivoDepreciacion.objects.filter(planta=super().get_object().id) \
             .annotate(year=ExtractYear('periodo')) \
             .values('year') \
-            .annotate(depreciacion=Sum('valor_depreciacion'),contable=Sum('valor_contable')) \
+            .annotate(depreciacion=Sum('valor_depreciacion'), contable=Sum('valor_contable')) \
             .order_by('year')
         return context
 
@@ -93,7 +93,7 @@ class PlantaDepreciacionMensual(generic.DetailView):
         # .annotate(mes=ExtractMonth('periodo'),nombre='periodo') \
         context['periodo_list'] = ActivoDepreciacion.objects.filter(planta=super().get_object().id, periodo__year=self.kwargs['year']) \
             .values('periodo') \
-            .annotate(depreciacion=Sum('valor_depreciacion'),contable=Sum('valor_contable')) \
+            .annotate(depreciacion=Sum('valor_depreciacion'), contable=Sum('valor_contable')) \
             .order_by('periodo')
         return context
 
