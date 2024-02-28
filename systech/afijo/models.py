@@ -237,7 +237,7 @@ class Activo(models.Model):
         periodoBaja = dateToPeriodo(self.fecha_baja)
         if periodoBaja is None:
             periodoBaja = periodoFin
-        periodoBaja += relativedelta(months=1)
+            periodoBaja += relativedelta(months=1)
         "Recalcula depreciación por año hasta duración máxima, termino de la planta o baja del activo"
         if duracionActivo > 0 and self.planta.activa:
             i = 0
@@ -246,21 +246,33 @@ class Activo(models.Model):
             acumAnual = 0
             duracion = duracionActivo if duracionActivo > duracionPlanta else duracionPlanta
             while i < duracion and periodoIni <= periodoBaja and round(valorContable * pond, 0) > 0:
-                acumTotal += valorDep
-                acumAnual += valorDep
-                valorContable -= valorDep
-                if valorContable * pond < 0:
-                    acumTotal -= valorContable
-                    acumAnual -= valorContable
-                    valorContable = 0
-                actDep = ActivoDepreciacion(activo=self,
-                                            planta=self.planta,
-                                            periodo=periodoIni,
-                                            valor_contable=valorContable,
-                                            valor_depreciacion=valorDep,
-                                            duracion_real=duracionActivo,
-                                            acum_total=acumTotal,
-                                            acum_anual=acumAnual)
+                if periodoIni == periodoBaja:
+                    # Ultimo periodo BAJA del activo
+                    actDep = ActivoDepreciacion(activo=self,
+                                                planta=self.planta,
+                                                periodo=periodoIni,
+                                                valor_contable=0,
+                                                valor_depreciacion=valorDep,
+                                                duracion_real=duracionActivo,
+                                                acum_total=self.valor,
+                                                acum_anual=acumAnual + valorContable)
+                else:
+                    acumTotal += valorDep
+                    acumAnual += valorDep
+                    valorContable -= valorDep
+                    if valorContable * pond < 0:
+                        acumTotal -= valorContable
+                        acumAnual -= valorContable
+                        valorContable = 0
+
+                    actDep = ActivoDepreciacion(activo=self,
+                                                planta=self.planta,
+                                                periodo=periodoIni,
+                                                valor_contable=valorContable,
+                                                valor_depreciacion=valorDep,
+                                                duracion_real=duracionActivo,
+                                                acum_total=acumTotal,
+                                                acum_anual=acumAnual)
                 actDep.save()
                 i += 1
                 periodoIni = periodoIni + relativedelta(months=1)

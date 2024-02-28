@@ -1,0 +1,18 @@
+docker exec -i  postgres-afijo pg_dump -d afijo_db -U systech  \
+-t afijo_activo                    \
+-t afijo_activo_id_seq             \
+-t afijo_activodepreciacion        \
+-t afijo_activodepreciacion_id_seq \
+-t afijo_estado                    \
+-t afijo_estado_id_seq             \
+-t afijo_movimiento                \
+-t afijo_movimiento_id_seq         \
+-t afijo_planta                    \
+-t afijo_planta_id_seq             \
+-t afijo_region                    \
+-t afijo_region_id_seq             \
+-t afijo_tipo_activo               \
+-t afijo_tipodepreciacion          \
+-t afijo_tipodepreciacion_id_seq   \
+-t afijo_tipofamilia               \
+-t afijo_tipofamilia_id_seq        > afijo_db_dump_$( date +"%Y%m%d_%H%M%S" ).sql
